@@ -4,7 +4,7 @@ class CreateComments < ActiveRecord::Migration
       t.text :body, null: false
       t.string :moderation, default: 'unverified'
       t.integer :user_id
-      t.integer :blog_id
+      t.integer :blog_id, null: false
       t.timestamps
     end
   end

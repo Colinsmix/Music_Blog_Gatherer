@@ -4,6 +4,7 @@ source 'https://rubygems.org'
 gem 'rails', '4.0.2'
 gem 'acts-as-taggable-on'
 gem 'devise'
+gem 'pry-rails'
 
 # Use postgresql as the database for Active Record
 gem 'pg'

@@ -29,6 +29,7 @@ describe User do
     end
 
     it { should validate_uniqueness_of :email}
+    binding.pry
     it { should validate_uniqueness_of :username}    
   end
 end

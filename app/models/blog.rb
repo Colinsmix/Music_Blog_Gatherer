@@ -1,9 +1,11 @@
 class Blog < ActiveRecord::Base
   # VALID_URL_REGEX = /((([A-Za-z]{3,9}:(?:\/\/)?)(?:[-;:&=\+\$,\w]+@)?[A-Za-z0-9.-]+|(?:www.|[-;:&=\+\$,\w]+@)[A-Za-z0-9.-]+)((?:\/[\+~%\/.\w-_]*)?\??(?:[-\+=&;%@.\w_]*)#?(?:[\w]*))?)/
+  acts_as_taggable
+  acts_as_votable
+  
   belongs_to :user
-  has_many :comments
-  has_many :favorites
-  has_many :votes
+  has_many :comments, inverse_of: :blog
+  has_many :favorites, inverse_of: :blog
 
   validates_presence_of :name
   

@@ -13,9 +13,6 @@ describe User do
     it { should validate_presence_of :username }
   end
 
-  context 'Password' do
-    it { should validate_presence_of :password }
-  end
 
   context 'Email' do
     it { should validate_presence_of :email }
@@ -29,7 +26,6 @@ describe User do
     end
 
     it { should validate_uniqueness_of :email}
-    binding.pry
     it { should validate_uniqueness_of :username}    
   end
 end

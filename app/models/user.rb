@@ -14,6 +14,7 @@ class User < ActiveRecord::Base
   validates_presence_of :username
   validates_uniqueness_of :username
   
+  
   validates_presence_of :email
   validates_format_of :email, :with => VALID_EMAIL_REGEX, :on => :create  
   validates_uniqueness_of :email

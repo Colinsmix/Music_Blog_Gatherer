@@ -3,7 +3,7 @@ class Blog < ActiveRecord::Base
   acts_as_taggable
   acts_as_votable
   
-  belongs_to :submitter, class_name: 'User', foreign_key: :user_id
+  belongs_to :submitter, class_name: 'User', foreign_key: :submitter_id
 
   has_many :comments, inverse_of: :blog
   has_many :favorites, inverse_of: :blog

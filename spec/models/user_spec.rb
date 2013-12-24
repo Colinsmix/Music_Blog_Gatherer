@@ -6,7 +6,6 @@ describe User do
     it { should have_many(:blogs) }
     it { should have_many(:favorites) }
     it { should have_many(:comments) }
-    it { should have_many(:votes) }
   end
   
   context 'Username' do

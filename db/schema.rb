@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131219232754) do
+ActiveRecord::Schema.define(version: 20131224162214) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,6 +25,8 @@ ActiveRecord::Schema.define(version: 20131219232754) do
     t.datetime "updated_at"
   end
 
+  add_index "blogs", ["user_id"], name: "index_blogs_on_user_id", using: :btree
+
   create_table "comments", force: true do |t|
     t.text     "body",                              null: false
     t.string   "moderation", default: "unverified"
@@ -34,12 +36,18 @@ ActiveRecord::Schema.define(version: 20131219232754) do
     t.datetime "updated_at"
   end
 
+  add_index "comments", ["blog_id"], name: "index_comments_on_blog_id", using: :btree
+  add_index "comments", ["user_id"], name: "index_comments_on_user_id", using: :btree
+
   create_table "favorites", force: true do |t|
     t.integer  "user_id",    null: false
     t.integer  "blog_id",    null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "favorites", ["blog_id"], name: "index_favorites_on_blog_id", using: :btree
+  add_index "favorites", ["user_id"], name: "index_favorites_on_user_id", using: :btree
 
   create_table "taggings", force: true do |t|
     t.integer  "tag_id"

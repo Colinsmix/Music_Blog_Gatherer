@@ -10,10 +10,6 @@ class User < ActiveRecord::Base
   has_many :blogs, inverse_of: :submitter
   has_many :favorites, inverse_of: :user
   has_many :comments, inverse_of: :user
-
-  validates_presence_of :username
-  validates_uniqueness_of :username
-  
   
   validates_presence_of :email
   validates_format_of :email, :with => VALID_EMAIL_REGEX, :on => :create  

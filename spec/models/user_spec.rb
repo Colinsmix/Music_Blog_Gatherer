@@ -8,9 +8,6 @@ describe User do
     it { should have_many(:comments) }
   end
   
-  context 'Username' do
-    it { should validate_presence_of :username }
-  end
 
 
   context 'Email' do
@@ -25,6 +22,5 @@ describe User do
     end
 
     it { should validate_uniqueness_of :email}
-    it { should validate_uniqueness_of :username}    
   end
 end

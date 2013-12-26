@@ -22,8 +22,15 @@
   </head>
 
   <body>
+    <div class='row'>
+    <% if user_signed_in? %>
+      <p><%= current_user.first_name %>Read the fucking manual</p>
+      <%= link_to 'Sign Out', destroy_user_session_path, method: :delete %>
+    <% end %>
 
     <%= yield %>
+
+    </div>
 
     
     <%= javascript_include_tag "application" %>

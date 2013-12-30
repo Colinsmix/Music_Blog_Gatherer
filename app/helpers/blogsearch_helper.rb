@@ -1,0 +1,2 @@
+module BlogsearchHelper
+end

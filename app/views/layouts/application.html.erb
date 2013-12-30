@@ -14,7 +14,7 @@
   	<!-- Set the viewport width to device width for mobile -->
   	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  	<title><%= content_for?(:title) ? yield(:title) : "Untitled" %></title>
+  	<title><%= content_for?(:title) ? yield(:title) : "Welcome" %></title>
 
   	<%= stylesheet_link_tag    "application" %>
   	<%= javascript_include_tag "vendor/custom.modernizr" %>
@@ -22,19 +22,36 @@
   </head>
 
   <body>
+    <nav class="top-bar" data-topbar data-options="is_hover: false">
+      <ul class="title-area">
+      <li class="name">
+        <h1><a href="/">Music Blog</a></h1>
+      </li>
+      <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+    </ul>
+
+    <section class="top-bar-section">
+    <!-- Right Nav Section -->
+    <ul class="right">
+      <li class="active"><%= link_to 'Sign Up', new_user_registration_path if !user_signed_in? %></li>
+      <li class="active"><a href="/users/sign_in">Sign In</a></li>
+      <% if user_signed_in? %>
+      <li class="active"><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
+      <% end %>
+    </ul>
+    <!-- Left Nav Section -->
+    <ul class="left">
+      <li><a href="#">Add New Blog</a></li>
+    </ul>
+    </nav>
+
     <div>
       <% flash.each do |name, msg| %>
         <p><%= "#{msg}" %></p>
       <% end %>
     </div>
     <div class='row'>
-    <% if user_signed_in? %>
-      <p><%= current_user.first_name %></p>
-      <%= link_to 'Sign Out', destroy_user_session_path, method: :delete %>
-    <% end %>
-
     <%= yield %>
-
     </div>
 
     

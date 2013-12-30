@@ -11,21 +11,6 @@ So that I can save favorite blogs, and vote on blogs.
 
   context 'Signing Up' do
 
-    scenario 'requires an email' do
-      visit "/users/sign_up"
-      fill_in "Password", :with => "passwordtest", :match => :prefer_exact
-      fill_in "Password confirmation", :with => "passwordtest", :match => :prefer_exact
-      click_button "Sign up"
-      expect(page).to have_content("can't be blank")
-    end
-
-    scenario 'requires a password' do
-      visit "/users/sign_up"
-      fill_in "Email", :with => "example@example.com"
-      click_button "Sign up"
-      expect(page).to have_content("can't be blank")
-    end
-
     scenario 'Redirects the user to the profile page after sign up' do
       visit "/users/sign_up"
       fill_in "Email", :with => "example@example.com"
@@ -37,19 +22,6 @@ So that I can save favorite blogs, and vote on blogs.
   end
 
   context 'Signing in' do
-    scenario 'requires an email' do
-      visit "/users/sign_in"
-      fill_in "Password", :with => "passwordtest", :match => :prefer_exact
-      click_button "Sign in"
-      expect(page).to have_content("Invalid email or password")
-    end
-
-    scenario 'requires a password' do
-      visit "/users/sign_in"
-      fill_in "Email", :with => "example@example.com", :match => :prefer_exact
-      click_button "Sign in"
-      expect(page).to have_content("Invalid email or password")
-    end
 
     scenario 'I see my profile page if signed in on an account without a name' do
       sign_in_as(user)
@@ -65,7 +37,8 @@ So that I can save favorite blogs, and vote on blogs.
 
   end
 
-  context 'Forgetting your password' do    
+  context 'Forgetting your password' do 
+     
     scenario "recover password" do
     visit "/users/sign_in"
     user.save!

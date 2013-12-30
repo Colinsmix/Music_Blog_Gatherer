@@ -48,6 +48,8 @@ group :test, :development do
   gem 'binding_of_caller'
   gem 'meta_request'
   gem 'launchy'
+  gem 'email_spec'
+
 end
 
 

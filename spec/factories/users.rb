@@ -1,10 +1,14 @@
-# Read about factories at https://github.com/thoughtbot/factory_girl
-
 FactoryGirl.define do
   factory :user do
     password 'password'
-    first_name 'John'
-    last_name 'Doe'
-    sequence(:email) { |n| "thisisemail#{n}@example.com" }
+    password_confirmation {|u| u.password}
+    sequence(:email) { |n| "example#{n}@example.com" }
+
+    trait :with_name do
+      first_name "Colin"
+      last_name "dsgsdf"
+    end
+
+    factory :user_with_name, traits: [:with_name]
   end
 end

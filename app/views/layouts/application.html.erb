@@ -23,9 +23,8 @@
 
   <body>
     <div>
-    <p>Set up your alerts and notices here</p>
       <% flash.each do |name, msg| %>
-        <p><%= "#{name}, #{msg}" %></p>
+        <p><%= "#{msg}" %></p>
       <% end %>
     </div>
     <div class='row'>

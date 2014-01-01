@@ -39,18 +39,29 @@ end
 
 group :test, :development do
   gem 'rspec-rails'
-  gem 'capybara'
   gem 'factory_girl_rails'
-  gem 'valid_attribute'
-  gem 'shoulda-matchers'
   gem 'pry-rails'
+  gem 'quiet_assets'
+  
+end
+
+group :test do
+  gem 'capybara'    
+  gem 'shoulda-matchers'
+  gem 'valid_attribute'
+  gem 'email_spec'
+  gem 'launchy'
+end
+
+group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'meta_request'
-  gem 'launchy'
-  gem 'email_spec'
-
 end
+
+
+
+
 
 
 # Use ActiveModel has_secure_password

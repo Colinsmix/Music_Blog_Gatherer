@@ -5,8 +5,8 @@ FactoryGirl.define do
     sequence(:email) { |n| "example#{n}@example.com" }
 
     trait :with_name do
-      first_name "Colin"
-      last_name "dsgsdf"
+      first_name "John"
+      last_name "Smith"
     end
 
     factory :user_with_name, traits: [:with_name]

@@ -1,5 +1,6 @@
 MusicBlog::Application.routes.draw do
   devise_for :users
+  resources :users, :only => [:show]
   root 'welcome#index'
   resources :blogs
 

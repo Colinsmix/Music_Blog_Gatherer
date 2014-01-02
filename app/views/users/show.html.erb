@@ -1,0 +1,5 @@
+<h1>Welcome, <% if current_user.first_name == '' || current_user.first_name.nil? %> 
+              <%= current_user.email %>
+              <% else %>
+              <%= "#{current_user.first_name} #{current_user.last_name }" %>
+              <% end %> </h1>

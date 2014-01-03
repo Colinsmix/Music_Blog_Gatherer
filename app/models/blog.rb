@@ -12,6 +12,8 @@ class Blog < ActiveRecord::Base
   
   validates_presence_of :url
   validates_uniqueness_of :url
+
+  validates_presence_of :description
   # validates_format_of :url, :with => VALID_URL_REGEX, :on => :create
 
 

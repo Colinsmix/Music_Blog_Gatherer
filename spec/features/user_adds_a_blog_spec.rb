@@ -10,27 +10,36 @@ So that it can be searched for by other users.) do
 # - When I complete the form, the data is stored in the database labeled 'unverified'.
   let!(:user){ FactoryGirl.build(:user) }
 
-scenario 'Visitor attempts to add a blog without signing in' do
-  visit root_path
-  click_link 'Add a Blog'
+  scenario 'Visitor attempts to add a blog without signing in' do
+    visit root_path
+    click_link 'Add a Blog'
 
-  expect(page).to have_content('You need to sign in')
-  expect(page).to have_link('Sign In')
-end
+    expect(page).to have_content('You need to sign in')
+    expect(page).to have_link('Sign In')
+  end
 
-scenario 'Redirects the user to the main page after adding a blog successfully' do
-  user.save!
-  sign_in_as(user)
-  visit root_path
-  click_link 'Add a Blog'
-  fill_in 'Name', :with => 'Example Blog' 
-  fill_in 'Url', :with => 'www.exampleblog.com'
-  fill_in 'Description', :with => 'An example of a blog'
-  click_button 'Create Blog'
+  scenario 'Redirects the user to the main page after adding a blog successfully' do
+    user.save!
+    sign_in_as(user)
+    visit root_path
+    click_link 'Add a Blog'
+    fill_in 'Name', :with => 'Example Blog' 
+    fill_in 'Url', :with => 'www.exampleblog.com'
+    fill_in 'Description', :with => 'An example of a blog'
+    click_button 'Create Blog'
 
-  expect(page).to have_content('Blog Added!')
-end
+    expect(page).to have_content('Blog Added!')
+  end
 
+  scenario 'User enters a blog with invalid information' do
+    user.save!
+    sign_in_as(user)
+    visit root_path
+    click_link 'Add a Blog'
+    click_button 'Create Blog'
 
-
+    expect(page).to have_content("Namecan't be blank")
+    expect(page).to have_content("Urlcan't be blank")
+    expect(page).to have_content("Descriptioncan't be blank")
+  end
 end

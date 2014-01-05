@@ -9,6 +9,7 @@ So that it can be searched for by other users.) do
 # - If I fail to complete any line of the form, the form will not complete.
 # - When I complete the form, the data is stored in the database labeled 'unverified'.
   let!(:user){ FactoryGirl.build(:user) }
+  let!(:blog){ FactoryGirl.build(:blog) }
 
   scenario 'Visitor attempts to add a blog without signing in' do
     visit root_path
@@ -23,12 +24,13 @@ So that it can be searched for by other users.) do
     sign_in_as(user)
     visit root_path
     click_link 'Add a Blog'
-    fill_in 'Name', :with => 'Example Blog' 
-    fill_in 'Url', :with => 'www.exampleblog.com'
-    fill_in 'Description', :with => 'An example of a blog'
+    fill_in 'Name', :with => blog.name 
+    fill_in 'Url', :with => blog.url
+    fill_in 'Description', :with => blog.description
     click_button 'Create Blog'
 
     expect(page).to have_content('Blog Added!')
+
   end
 
   scenario 'User enters a blog with invalid information' do

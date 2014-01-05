@@ -14,6 +14,7 @@ So that I can see my favorite blogs, vote on blogs, and submit a blog.) do
     scenario 'I see my profile page if signed in on an account without a name' do
       user.save!
       sign_in_as(user)
+      
       expect(page).to have_content("Welcome, #{user.email}")
     end
 
@@ -21,6 +22,7 @@ So that I can see my favorite blogs, vote on blogs, and submit a blog.) do
       user = FactoryGirl.build(:user, :with_name)
       user.save!
       sign_in_as(user)
+
       expect(page).to have_content("Welcome, #{user.first_name} #{user.last_name}")
     end
 
@@ -35,6 +37,7 @@ So that I can see my favorite blogs, vote on blogs, and submit a blog.) do
     click_link "Forgot your password?"
     fill_in "Email", :with => user.email
     click_button "Send me reset password instructions"
+
     unread_emails_for(user.email).should be_present
     end
   end

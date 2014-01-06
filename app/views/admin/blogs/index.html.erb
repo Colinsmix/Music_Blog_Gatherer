@@ -1,1 +1,4 @@
 <h1> Blog Verification </h1>
+
+<%= @blogs.each do |blog| %>
+  <%= "#{blog.name}: #{blog.url}" %>

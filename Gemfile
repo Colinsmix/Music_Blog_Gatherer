@@ -42,6 +42,7 @@ group :test, :development do
   gem 'factory_girl_rails'
   gem 'pry-rails'
   gem 'quiet_assets'
+  gem 'dotenv-rails'
   
 end
 

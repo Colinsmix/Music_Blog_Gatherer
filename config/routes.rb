@@ -5,6 +5,7 @@ MusicBlog::Application.routes.draw do
   resources :blogs
 
   namespace :admin do
+    resources :blogs
   end
 
   # The priority is based upon order of creation: first created -> highest priority.

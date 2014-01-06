@@ -1,5 +1,5 @@
-module Admin
-  class BlogsController < ApplicationController
+
+  class Admin::BlogsController < ApplicationController
 
     def index
       @blogs = Blog.where("verified? = unverified")
@@ -9,4 +9,3 @@ module Admin
       
     end
   end
-end

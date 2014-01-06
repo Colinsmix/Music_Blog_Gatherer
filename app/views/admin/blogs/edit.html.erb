@@ -1,1 +1,14 @@
-<h1> Verify </h1>
+<h1><%= @blog.name %></h1>
+
+<h2><%= @blog.url %></h2>
+
+<h3><%= @blog.description %></h3>
+
+<h3> Taggings </h3>
+  <%= simple_form_for [:admin, @blog] do |f| %>
+    <%= f.input :tag_list %>
+    <%= f.input :verified?, collection: ["Verified" , "Denied"], as: :radio_buttons %>
+    <%= f.button :submit, 'Verify' %>
+  <% end %>
+
+  <%= link_to 'Back to List', admin_blogs_path %>

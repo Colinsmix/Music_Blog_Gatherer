@@ -1,4 +1,5 @@
 <h1> Blog Verification </h1>
 
-<%= @blogs.each do |blog| %>
-  <%= "#{blog.name}: #{blog.url}" %>
+<% @blogs.each do |blog| %>
+  <div><%= link_to blog.name, edit_admin_blog_path(blog) %></div>
+<% end %>

@@ -27,7 +27,7 @@ So that users have an easy and convenient way of searching for new music.) do
     expect(page).to have_link('Verify Blogs')
   end
 
-  scenario 'Admins can access an unverified Blog from the Verify Blogs page' do
+  scenario 'Admins can choose from a list of blogs that are unverified' do
     user.role = 'Admin'
     user.save!
     blog.save!
@@ -40,6 +40,22 @@ So that users have an easy and convenient way of searching for new music.) do
     expect(page).to have_content(blog.url)
     expect(page).to have_content(blog.description)
     expect(page).to have_content('Tagging')
+  end
+
+  scenario 'Admins can tag and verify an unverified blog' do
+    user.role = 'Admin'
+    user.save!
+    blog.save!
+    sign_in_as(user)
+    visit root_path
+    click_link('Verify Blogs')
+    click_link(blog.name)
+    fill_in "Tag list", with: 'Heavy Metal, Rock, Jazz'
+    select('Verified', :from => 'Verified?')
+    click_button "Verify"
+
+    expect(page).to have_content('Blog Verified Successfully')
+    expect(page).to have_content('Blog Verification')
   end
 
 

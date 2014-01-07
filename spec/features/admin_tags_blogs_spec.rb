@@ -51,7 +51,11 @@ So that users have an easy and convenient way of searching for new music.) do
     click_link('Verify Blogs')
     click_link(blog.name)
     fill_in "Tag list", with: 'Heavy Metal, Rock, Jazz'
-    select('Verified', :from => 'Verified?')
+    within '#blog_verified' do 
+      choose('Verified')#, :from => "Verified?")
+    end
+
+
     click_button "Verify"
 
     expect(page).to have_content('Blog Verified Successfully')

@@ -14,7 +14,7 @@
 
     def update
       @blog = Blog.find(params[:id])
-      if @blog.update(blog_params)
+      if @blog.update({verified?: params[:blog][:verified], tag_list: params[:blog][:tag_list]})
         redirect_to admin_blogs_path, notice: 'Blog Verified Successfully'
       else
         render 'edit'

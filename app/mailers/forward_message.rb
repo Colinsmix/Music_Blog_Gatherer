@@ -9,6 +9,6 @@ class ForwardMessage < ActionMailer::Base
   def send_message(message)
     @message = message
 
-    mail to: "colinsmix@gmail.com"
+    mail to: "colinsmix@gmail.com", subject: "Message Received from Music Blog Gatherer"
   end
 end

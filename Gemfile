@@ -43,6 +43,7 @@ group :test, :development do
   gem 'pry-rails'
   gem 'quiet_assets'
   gem 'dotenv-rails'
+  gem 'mailcatcher'
   
 end
 

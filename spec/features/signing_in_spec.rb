@@ -1,5 +1,6 @@
 require 'spec_helper'
 
+
 feature 'User signs into the website', %q(
 As a user
 I can log into the website
@@ -14,7 +15,7 @@ So that I can see my favorite blogs, vote on blogs, and submit a blog.) do
     scenario 'I see my profile page if signed in on an account without a name' do
       user.save!
       sign_in_as(user)
-      
+       ma
       expect(page).to have_content("Welcome, #{user.email}")
     end
 

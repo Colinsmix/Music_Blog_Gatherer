@@ -23,6 +23,7 @@ So that it can be searched for by other users.) do
     user.save!
     sign_in_as(user)
     visit root_path
+
     click_link 'Add a Blog'
     fill_in 'Name', :with => blog.name 
     fill_in 'Url', :with => blog.url
@@ -31,6 +32,7 @@ So that it can be searched for by other users.) do
 
     expect(page).to have_content('Blog Added!')
     expect(Blog.last.status).to eql('unverified')
+    expect(Blog.last.submitter).to eql(user)
 
   end
 

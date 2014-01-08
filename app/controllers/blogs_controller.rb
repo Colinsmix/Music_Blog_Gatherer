@@ -18,7 +18,7 @@ class BlogsController < ApplicationController
 
   def create
     @blog = Blog.new(blog_params)
-
+    @blog.submitter = current_user
     if @blog.save
       redirect_to root_path, notice: 'Blog Added!'
     else

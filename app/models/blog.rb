@@ -3,7 +3,8 @@ class Blog < ActiveRecord::Base
   acts_as_taggable
   acts_as_votable
 
-  before_update { |user| user.tag_list = user.tag_list.sort }
+  # before_save { |blog| blog.submitter = current_user }
+  before_update { |blog| blog.tag_list = blog.tag_list.sort.reverse }
   
   belongs_to :submitter, class_name: 'User', foreign_key: :submitter_id
 

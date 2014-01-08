@@ -52,7 +52,7 @@ So that users have an easy and convenient way of searching for new music.) do
     click_link(blog.name)
     fill_in "Tag list", with: 'Heavy Metal, Rock, Jazz'
     within '#blog_verified' do 
-      choose('Verified')#, :from => "Verified?")
+      choose('Verified')
     end
 
 
@@ -60,6 +60,7 @@ So that users have an easy and convenient way of searching for new music.) do
 
     expect(page).to have_content('Blog Verified Successfully')
     expect(page).to have_content('Blog Verification')
+    expect(blog.tag_list).to eql(["Heavy Metal", "Jazz", "Rock"])
   end
 
 

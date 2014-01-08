@@ -30,7 +30,7 @@ So that it can be searched for by other users.) do
     click_button 'Create Blog'
 
     expect(page).to have_content('Blog Added!')
-    expect(Blog.last.verified?).to eql('unverified')
+    expect(Blog.last.status).to eql('unverified')
 
   end
 

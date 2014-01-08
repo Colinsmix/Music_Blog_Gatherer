@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140102194826) do
+ActiveRecord::Schema.define(version: 20140107011225) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -50,6 +50,16 @@ ActiveRecord::Schema.define(version: 20140102194826) do
 
   add_index "favorites", ["blog_id"], name: "index_favorites_on_blog_id", using: :btree
   add_index "favorites", ["user_id"], name: "index_favorites_on_user_id", using: :btree
+
+  create_table "messages", force: true do |t|
+    t.string   "email",       null: false
+    t.string   "subject",     null: false
+    t.text     "description", null: false
+    t.string   "first_name",  null: false
+    t.string   "last_name",   null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "taggings", force: true do |t|
     t.integer  "tag_id"

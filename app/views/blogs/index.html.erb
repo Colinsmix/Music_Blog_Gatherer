@@ -8,6 +8,21 @@
   <%= f.submit %>
 <% end %>
 
-<% @blogs.each do |blog| %>
-  <%= blog.name %>
+<table id="blogs">
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+    <th>Tag List</th>
+  </tr>
+</thead>
+<tbody>
+  <% @blogs.each do |blog| %>
+    <tr>
+      <td><%= blog.name %></td>
+      <td><%= blog.description %></td>
+      <td><%= blog.tag_list %></td>
+    </tr>
   <% end %>
+</tbody>
+</table>

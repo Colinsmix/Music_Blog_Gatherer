@@ -4,7 +4,11 @@ class BlogsController < ApplicationController
 
   def index
     @search = Blog.search(params[:q])
+    if params[:q]
     @blogs = @search.result
+    else
+      @blogs = Blog.where(status: 'Verified')
+    end
   end
 
   def show

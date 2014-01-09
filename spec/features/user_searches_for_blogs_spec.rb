@@ -13,11 +13,9 @@ So that I can find music that I'm interested in.), js: true do
   let!(:blog3){ FactoryGirl.create(:blog, tag_list: ['Jazz', 'Metal'], status: 'Verified') }
   let!(:blog4){ FactoryGirl.create(:blog, tag_list: ['Opera', 'Kpop'], status: 'unverified') }
 
-
-
-
   scenario 'Visitor enters a tag into the search criteria' do
     visit root_path
+    binding.pry
     fill_in 'Search', with: 'Jazz'
     expect(page).to have_content(blog1.name)
     expect(page).to have_content(blog3.name)

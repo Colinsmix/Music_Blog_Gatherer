@@ -1,10 +1,3 @@
-GIT
-  remote: git://github.com/rweng/jquery-datatables-rails.git
-  revision: 44b0448193d4856847e47fb2a245bdd51a4bb2fa
-  specs:
-    jquery-datatables-rails (1.12.2)
-      jquery-rails
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -52,9 +45,8 @@ GEM
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
-    childprocess (0.3.9)
-      ffi (~> 1.0, >= 1.0.11)
     chunky_png (1.2.9)
+    cliver (0.3.2)
     coderay (1.1.0)
     coffee-rails (4.0.1)
       coffee-script (>= 2.2.0)
@@ -92,7 +84,6 @@ GEM
     factory_girl_rails (4.2.1)
       factory_girl (~> 4.2.0)
       railties (>= 3.0.0)
-    ffi (1.9.3)
     fssm (0.2.10)
     haml (4.0.5)
       tilt
@@ -133,6 +124,13 @@ GEM
       mini_portile (~> 0.5.0)
     orm_adapter (0.5.0)
     pg (0.17.0)
+    poltergeist (1.5.0)
+      capybara (~> 2.1)
+      cliver (~> 0.3.1)
+      multi_json (~> 1.0)
+      websocket-driver (>= 0.2.0)
+    polyamorous (0.6.4)
+      activerecord (>= 3.0)
     polyglot (0.3.3)
     pry (0.9.12.3)
       coderay (~> 1.0)
@@ -163,6 +161,10 @@ GEM
       rake (>= 0.8.7)
       thor (>= 0.18.1, < 2.0)
     rake (10.1.0)
+    ransack (1.1.0)
+      actionpack (>= 3.0)
+      activerecord (>= 3.0)
+      polyamorous (~> 0.6.0)
     rdoc (3.12.2)
       json (~> 1.4)
     rspec-core (2.14.7)
@@ -176,7 +178,6 @@ GEM
       rspec-core (~> 2.14.0)
       rspec-expectations (~> 2.14.0)
       rspec-mocks (~> 2.14.0)
-    rubyzip (0.9.9)
     sass (3.2.12)
     sass-rails (4.0.1)
       railties (>= 4.0.0, < 5.0)
@@ -185,11 +186,6 @@ GEM
     sdoc (0.3.20)
       json (>= 1.1.3)
       rdoc (~> 3.10)
-    selenium-webdriver (2.35.1)
-      childprocess (>= 0.2.5)
-      multi_json (~> 1.0)
-      rubyzip (< 1.0.0)
-      websocket (~> 1.0.4)
     shoulda-matchers (2.4.0)
       activesupport (>= 3.0.0)
     simple_form (3.0.1)
@@ -233,7 +229,7 @@ GEM
     valid_attribute (1.3.1)
     warden (1.2.3)
       rack (>= 1.0)
-    websocket (1.0.7)
+    websocket-driver (0.3.1)
     xpath (2.0.0)
       nokogiri (~> 1.3)
     zurb-foundation (4.3.2)
@@ -255,19 +251,19 @@ DEPENDENCIES
   email_spec
   factory_girl_rails
   jbuilder (~> 1.2)
-  jquery-datatables-rails!
   jquery-rails
   launchy
   mailcatcher
   meta_request
   pg
+  poltergeist
   pry-rails
   quiet_assets
   rails (= 4.0.2)
+  ransack
   rspec-rails
   sass-rails (~> 4.0.0)
   sdoc
-  selenium-webdriver
   shoulda-matchers
   simple_form
   uglifier (>= 1.3.0)

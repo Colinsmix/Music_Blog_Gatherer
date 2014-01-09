@@ -4,7 +4,7 @@ class Blog < ActiveRecord::Base
   acts_as_votable
 
   # before_save { |blog| blog.submitter = current_user }
-  before_update { |blog| blog.tag_list = blog.tag_list.sort }
+  before_update { |blog| blog.tag_list.sort{|a,b| a<=>b }}
   
   belongs_to :submitter, class_name: 'User', foreign_key: :submitter_id
 

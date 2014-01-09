@@ -6,7 +6,7 @@ gem 'acts-as-taggable-on'
 gem 'devise'
 gem 'acts_as_votable', '~> 0.8.0'
 gem 'simple_form'
-
+gem 'jquery-datatables-rails', git: 'git://github.com/rweng/jquery-datatables-rails.git'
 
 # Use postgresql as the database for Active Record
 gem 'pg'

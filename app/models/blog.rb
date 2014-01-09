@@ -9,7 +9,8 @@ class Blog < ActiveRecord::Base
   belongs_to :submitter, class_name: 'User', foreign_key: :submitter_id
 
   has_many :comments, inverse_of: :blog
-  has_many :users, inverse_of: :blog
+  has_many :users, through: :favorite_blogs
+  has_many :favorite_blogs
 
   validates_presence_of :name
   

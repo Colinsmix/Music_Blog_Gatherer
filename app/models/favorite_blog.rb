@@ -1,4 +1,4 @@
-class Favorite < ActiveRecord::Base
+class FavoriteBlog < ActiveRecord::Base
   belongs_to :blog
   belongs_to :user
   

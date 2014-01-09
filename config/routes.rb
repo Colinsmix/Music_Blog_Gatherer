@@ -2,7 +2,11 @@ MusicBlog::Application.routes.draw do
   devise_for :users
   resources :users, :only => [:show]
   root 'blogs#index'
-  resources :blogs
+  resources :blogs do
+    member do
+      get 'favorite'
+    end
+  end
   resources :messages
 
   namespace :admin do

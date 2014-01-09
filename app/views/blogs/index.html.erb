@@ -22,6 +22,7 @@
       <td><%= blog.name %></td>
       <td><%= blog.description %></td>
       <td><%= blog.tag_list %></td>
+      <td><%= link_to 'Favorite this blog', favorite_blog_path(blog) %>
     </tr>
   <% end %>
 </tbody>

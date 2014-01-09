@@ -44,6 +44,7 @@ group :test, :development do
   gem 'quiet_assets'
   gem 'dotenv-rails'
   gem 'mailcatcher'
+  gem 'selenium-webdriver'
   
 end
 

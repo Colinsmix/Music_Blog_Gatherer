@@ -1,19 +1,13 @@
 <h1> Blogs </h1>
-<table id="blogs">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Tags</th>
-    </tr>
-  </thead>
-  <tbody>
-  <% @blogs.each do |blog| %>
-    <tr>
-      <th><%= blog.name %></th>
-      <th><%= blog.description %></th>
-      <th><%= blog.tag_list %></th>
-    </tr>
+<%= search_form_for @search do |f| %>
+  <%= f.label :name_cont %>
+  <%= f.text_field :name_cont %>
+  <%= f.text_field :tags_name_in %>
+  <%= f.hidden_field :status_cont, value: "Verified" %>
+
+  <%= f.submit %>
+<% end %>
+
+<% @blogs.each do |blog| %>
+  <%= blog.name %>
   <% end %>
-  </tbody>
-</table>

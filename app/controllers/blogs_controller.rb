@@ -3,7 +3,8 @@ class BlogsController < ApplicationController
   before_action :set_blog, only: [:show, :edit, :update, :destroy]
 
   def index
-   @blogs = Blog.where(status:"Verified")
+    @search = Blog.search(params[:q])
+    @blogs = @search.result
   end
 
   def show

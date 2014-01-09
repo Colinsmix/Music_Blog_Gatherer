@@ -2,7 +2,7 @@
 
 FactoryGirl.define do
   factory :blog do
-    name 'Example Blog'
+    sequence(:name) { |n| "Example Blog #{n}"}
     sequence(:url) { |n| "www.UrlExample#{n}.com"}
     description 'Example Description'
 

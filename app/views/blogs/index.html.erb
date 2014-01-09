@@ -1,0 +1,21 @@
+<h1> Blogs </h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Tags</th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @blogs.each do |blog| %>
+    <tr>
+      <th><%= blog.name %></th>
+      <th><%= blog.description %></th>
+      <th><%= blog.tag_list %></th>
+    </tr>
+  <% end %>
+  </tbody>
+
+</table>

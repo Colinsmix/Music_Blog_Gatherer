@@ -43,6 +43,14 @@ class BlogsController < ApplicationController
     redirect_to blogs_path
   end
 
+  def like
+
+  end
+
+  def dislike
+
+  end
+
   private
 
   def set_blog

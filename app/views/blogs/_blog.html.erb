@@ -4,5 +4,7 @@
   <% else %>
     <td><%= link_to 'Favorite this blog', favorite_blog_path(blog) %></td>
   <% end %>
+  <td><%= link_to 'Like', like_blog_path(blog) %></td>
+  <td><%= link_to 'Dislike', dislike_blog_path(blog) %></td>
 <% end %>
 

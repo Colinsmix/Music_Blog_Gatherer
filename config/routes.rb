@@ -6,6 +6,8 @@ MusicBlog::Application.routes.draw do
     member do
       get 'favorite'
       get 'unfavorite'
+      get 'like'
+      get 'dislike'
     end
   end
   resources :messages

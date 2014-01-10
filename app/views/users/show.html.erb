@@ -5,5 +5,25 @@
               <% end %> </h1>
               
 <h2> Favorite Blogs </h2>
+  <table id="favorites">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Tag List</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @user.find_favorites.each do |blog| %>
+        <tr>
+          <td><%= blog.name %></td>
+          <td><%= blog.description %></td>
+          <td><%= blog.tag_list %></td>
+          <td><%= link_to 'Remove', unfavorite_blog_path(blog) %></td>
+
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 
 <h2> Most Recent Blogs </h2>

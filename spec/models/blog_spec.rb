@@ -5,7 +5,7 @@ describe Blog do
   context 'Associations' do
     it { should belong_to :submitter }
     it { should have_many :comments }
-    it { should have_many :favorites }
+    it { should have_many :favorite_blogs }
   end
 
   context 'Name' do

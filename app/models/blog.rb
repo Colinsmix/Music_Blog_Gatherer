@@ -20,4 +20,7 @@ class Blog < ActiveRecord::Base
   validates_presence_of :description
   # validates_format_of :url, :with => VALID_URL_REGEX, :on => :create
   
+  def check_favorite?(id)
+    favorite_blogs.where(user_id: id).any?
+  end
 end

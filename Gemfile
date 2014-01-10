@@ -44,6 +44,7 @@ group :test, :development do
   gem 'dotenv-rails'
   gem 'mailcatcher'
   gem 'poltergeist'
+  gem "rails-erd"
   
 end
 

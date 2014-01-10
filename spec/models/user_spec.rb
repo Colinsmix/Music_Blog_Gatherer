@@ -4,7 +4,7 @@ describe User do
 
   context 'Associations' do
     it { should have_many(:blogs) }
-    it { should have_many(:favorites) }
+    it { should have_many(:favorite_blogs) }
     it { should have_many(:comments) }
   end
   

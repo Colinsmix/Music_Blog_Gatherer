@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Favorite do
+describe FavoriteBlog do
   
   context 'Associations' do
     it { should belong_to :blog }

@@ -15,7 +15,6 @@ So that I can find music that I'm interested in.), js: true do
 
   scenario 'Visitor enters a tag into the search criteria' do
     visit root_path
-    binding.pry
     fill_in 'Search', with: 'Jazz'
     expect(page).to have_content(blog1.name)
     expect(page).to have_content(blog3.name)

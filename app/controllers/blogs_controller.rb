@@ -34,7 +34,13 @@ class BlogsController < ApplicationController
   def favorite
     @blog = Blog.find(params[:id])
     @blog.users << current_user
-    redirect_to blogs_path, notice: 'Nice favorite Colin'
+    redirect_to blogs_path
+  end
+
+  def unfavorite
+    @blog = Blog.find(params[:id])
+    @blog.users.delete(current_user)
+    redirect_to blogs_path
   end
 
   private

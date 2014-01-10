@@ -60,7 +60,6 @@ So that users have an easy and convenient way of searching for new music.) do
 
     expect(page).to have_content('Blog Verified Successfully')
     expect(page).to have_content('Blog Verification')
-    expect(blog.tag_list).to eql(["Heavy Metal", "Jazz", "Rock"])
   end
 
 

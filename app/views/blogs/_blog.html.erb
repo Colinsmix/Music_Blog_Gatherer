@@ -1,0 +1,8 @@
+<% if user_signed_in? %>
+  <% if blog.check_favorite?(current_user.id) %>
+    <td><%= link_to 'Unfavorite this blog', unfavorite_blog_path(blog) %></td>
+  <% else %>
+    <td><%= link_to 'Favorite this blog', favorite_blog_path(blog) %></td>
+  <% end %>
+<% end %>
+

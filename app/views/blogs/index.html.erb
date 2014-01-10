@@ -11,9 +11,9 @@
 <table id="blogs">
 <thead>
   <tr>
-    <th>Name</th>
-    <th>Description</th>
-    <th>Tag List</th>
+    <th><%= sort_link(@search, :name, "Blog Name") %></th>
+    <th><%= sort_link(@search, :description, "Blog Description") %></th>
+    <th><%= sort_link(@search, :tag_list, "Tags") %></th>
   </tr>
 </thead>
 <tbody>
@@ -27,4 +27,3 @@
   <% end %>
 </tbody>
 </table>
-

@@ -38,7 +38,7 @@
     $('.unfavoritebutton').click(function(e){
       e.preventDefault();
       var target = $(e.target);
-      $('.unfavoritebutton', target.parent()).remove();
+      $('.unfavoritebutton', target.parent()).closest('tr').remove();
       $.get('/blogs/' + target.data('blog-id') + '/unfavorite', function(response){
       });
     })

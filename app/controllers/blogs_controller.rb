@@ -5,9 +5,9 @@ class BlogsController < ApplicationController
   def index
     @search = Blog.search(params[:q])
     if params[:q]
-    @blogs = @search.result
+    @blogs = @search.result.paginate(:per_page => 10, :page => params[:page])
     else
-      @blogs = Blog.where(status: 'Verified')
+      @blogs = Blog.where(status: 'Verified').paginate(:per_page => 10, :page => params[:page])
     end
   end
 

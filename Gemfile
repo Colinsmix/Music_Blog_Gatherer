@@ -7,7 +7,7 @@ gem 'devise'
 gem 'acts_as_votable', '~> 0.8.0'
 gem 'simple_form'
 gem "ransack"
-gem 'will_paginate'
+gem 'will_paginate', '~> 3.0'
 # Use postgresql as the database for Active Record
 gem 'pg'
 

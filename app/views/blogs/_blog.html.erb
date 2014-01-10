@@ -1,10 +1,42 @@
 <% if user_signed_in? %>
-  <% if blog.check_favorite?(current_user.id) %>
-    <td><%= link_to 'Unfavorite this blog', unfavorite_blog_path(blog) %></td>
-  <% else %>
-    <td><%= link_to 'Favorite this blog', favorite_blog_path(blog) %></td>
-  <% end %>
+    <td data-blog-id='<%= blog.id %>' class="button unfavorite <%= 'show' if user_signed_in? && blog.check_favorite?(current_user.id) %>">Unfavorite Blog</td>
+    <td data-blog-id='<%= blog.id %>' class="button favorite <%= 'show' if user_signed_in? && !blog.check_favorite?(current_user.id) %>">Favorite Blog</td>
   <td><%= link_to 'Like', like_blog_path(blog) %></td>
   <td><%= link_to 'Dislike', dislike_blog_path(blog) %></td>
 <% end %>
 
+
+
+
+<% if user_signed_in? %>
+<script>
+  window.onload=function(){ 
+      unfavoriteBlog();
+      favoriteBlog();
+  }
+
+  var unfavoriteBlog = function(){
+    $('.unfavorite').click(function(e){
+      e.preventDefault();
+      var target = $(e.target);
+      $('.unfavorite', target.parent()).toggle();
+      $('.favorite', target.parent()).toggle();
+      $.get('blogs/' + target.data('blog-id') + '/unfavorite', function(response){    
+      });
+    })
+  }
+
+  var favoriteBlog = function(){
+    $('.favorite').click(function(e){
+      e.preventDefault();
+      var target = $(e.target);
+      $('.unfavorite', target.parent()).toggle();
+      $('.favorite', target.parent()).toggle();
+      $.get('blogs/' + target.data('blog-id') + '/favorite', function(response){
+      });
+    })
+  }
+
+</script>
+
+<% end %>

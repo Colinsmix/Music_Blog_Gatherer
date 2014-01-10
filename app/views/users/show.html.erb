@@ -19,11 +19,30 @@
           <td><%= blog.name %></td>
           <td><%= blog.description %></td>
           <td><%= blog.tag_list %></td>
-          <td><%= link_to 'Remove', unfavorite_blog_path(blog) %></td>
-
+          <td data-blog-id='<%= blog.id %>' class="button unfavoritebutton show">Remove</td>
         </tr>
       <% end %>
     </tbody>
   </table>
 
 <h2> Most Recent Blogs </h2>
+
+
+<% if user_signed_in? %>
+<script>
+  window.onload=function(){ 
+      removeFromFavorites();
+  }
+
+  var removeFromFavorites = function(){
+    $('.unfavoritebutton').click(function(e){
+      e.preventDefault();
+      var target = $(e.target);
+      $('.unfavoritebutton', target.parent()).remove();
+      $.get('/blogs/' + target.data('blog-id') + '/unfavorite', function(response){
+      });
+    })
+  }
+</script>
+
+<% end %>

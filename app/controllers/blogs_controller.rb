@@ -47,11 +47,29 @@ class BlogsController < ApplicationController
   end
 
   def like
-
+    @blog = Blog.find(params[:id])
+    if current_user.voted_for? @blog
+      if current_user.voted_down_on? @blog
+        @blog.undisliked_by current_user
+      else
+      end
+    else
+      @blog.liked_by current_user
+    end
+    render success: true, json: {data: 'Test'}
   end
 
   def dislike
-
+    @blog = Blog.find(params[:id])
+    if current_user.voted_for? @blog
+      if current_user.voted_up_on? @blog
+        @blog.unliked_by current_user
+      else
+      end
+    else
+      @blog.disliked_by current_user
+    end
+    render success: true, json: {data: 'Test'}
   end
 
   private

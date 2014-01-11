@@ -25,8 +25,8 @@
       <% if user_signed_in? %>
         <td data-blog-id='<%= blog.id %>' class="button unfavorite <%= 'show' if blog.check_favorite?(current_user.id) %>" onclick='unfavoriteBlog(event)'>Unfavorite Blog</td>
         <td data-blog-id='<%= blog.id %>' class="button favorite <%= 'show' if !blog.check_favorite?(current_user.id) %>" onclick='favoriteBlog(event)'>Favorite Blog</td>
-      <td><%= link_to 'Like', like_blog_path(blog) %></td>
-      <td><%= link_to 'Dislike', dislike_blog_path(blog) %></td>
+        <td data-blog-id='<%= blog.id %>' class="button like" onclick='likeBlog(event)'>Like</td>
+        <td data-blog-id='<%= blog.id %>' class="button dislike" onclick='dislikeBlog(event)'>Dislike</td>
     <% end %>
     </tr>
   <% end %>
@@ -74,6 +74,22 @@
       $('.unfavorite', target.parent()).toggle();
       $('.favorite', target.parent()).toggle();
       $.get('blogs/' + target.data('blog-id') + '/favorite', function(response){
+      });
+  }
+
+  var likeBlog = function(e){
+      e.preventDefault();
+      console.log('Liked');
+      var target = $(e.target);
+      $.get('blogs/' + target.data('blog-id') + '/like', function(response){        
+      });
+  }
+
+  var dislikeBlog = function(e){
+      e.preventDefault();
+      console.log('Disliked');
+      var target = $(e.target);
+      $.get('blogs/' + target.data('blog-id') + '/dislike', function(response){
       });
   }
 </script>

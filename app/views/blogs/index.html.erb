@@ -32,7 +32,8 @@
   <% end %>
 </tbody>
 </table>
-<%= will_paginate @blogs %>
+<div class = "paginateblogs"><%= will_paginate @blogs %></div>
+
 
 <% content_for :extra_footer do %>
 <script>
@@ -55,6 +56,7 @@
           var unfavorite = 'show';
         }
           $('tbody').append('<tr><td>'+response.blogs[i].name+'</td><td>'+response.blogs[i].description+'</td><td>'+response.blogs[i].tag_list+'</td><% if user_signed_in? %><td data-blog-id='+ response.blogs[i].id +' class="button unfavorite ' + favorite +'" onclick="unfavoriteBlog(event)">Unfavorite Blog</td><td data-blog-id='+ response.blogs[i].id +' class="button favorite ' + unfavorite + '" onclick="favoriteBlog(event)">Favorite Blog</td><td data-blog-id=' + response.blogs[i].id +' class="button like ' + '" onclick="likeBlog(event)">Like</td><td data-blog-id=' + response.blogs[i].id +' class="button dislike '+ '" onclick="dislikeBlog(event)">Dislike</td><% end %></tr>');
+          $('.paginateblogs').html('<%= will_paginate' + response.blogs + '%>');
         }
       });
     });

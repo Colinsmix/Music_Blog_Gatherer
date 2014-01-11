@@ -8,6 +8,7 @@ class BlogsController < ApplicationController
     @blogs = @search.result(distinct: true).paginate(:per_page => 10, :page => params[:page])
     respond_to do |format|
       format.json {render json: @blogs}
+      format.html {render html: @blogs}
     end
     else
     @blogs = Blog.where(status: 'Verified').paginate(:per_page => 10, :page => params[:page])

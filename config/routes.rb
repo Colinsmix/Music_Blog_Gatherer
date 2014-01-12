@@ -3,6 +3,7 @@ MusicBlog::Application.routes.draw do
   resources :users, :only => [:show]
   root 'blogs#index'
   resources :blogs do
+    resources :comments
     member do
       get 'favorite'
       get 'unfavorite'

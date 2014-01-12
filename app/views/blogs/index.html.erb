@@ -27,6 +27,8 @@
         <td data-blog-id='<%= blog.id %>' class="button favorite <%= 'show' if !blog.check_favorite?(current_user.id) %>" onclick='favoriteBlog(event)'>Favorite Blog</td>
         <td data-blog-id='<%= blog.id %>' class="button like" onclick='likeBlog(event)'>Like</td>
         <td data-blog-id='<%= blog.id %>' class="button dislike" onclick='dislikeBlog(event)'>Dislike</td>
+        <td><%= link_to 'Comments', blog_comments_path(blog) %>
+
     <% end %>
     </tr>
   <% end %>

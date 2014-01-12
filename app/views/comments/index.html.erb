@@ -1,0 +1,19 @@
+<h1> Comments </h1>
+
+<table id="comments">
+  <thead>
+    <tr>
+      <th>Comment</th>
+      <th>User</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @comments.each do |comment| %>
+      <tr>
+        <td><%= comment.body %></td>
+        <td><%= comment.user.email %>
+      </tr>
+    <% end %>     
+  </tbody>
+</table>
+<%= link_to 'Add a Comment', new_blog_comment_path(@blog) %>

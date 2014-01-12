@@ -20,7 +20,7 @@
 <tbody>
   <% @blogs.each do |blog| %>
     <tr>
-      <td><%= link_to "'#{blog.name}", "http://#{blog.url}" %></td>
+      <td><%= link_to "#{blog.name}", "http://#{blog.url}" %></td>
       <td><%= blog.description %></td>
       <td><%= blog.tag_list %></td>
       <% if user_signed_in? %>

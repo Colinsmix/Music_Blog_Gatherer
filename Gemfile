@@ -8,6 +8,7 @@ gem 'acts_as_votable', '~> 0.8.0'
 gem 'simple_form'
 gem "ransack"
 gem 'will_paginate', '~> 3.0'
+gem 'coveralls', require: false
 # Use postgresql as the database for Active Record
 gem 'pg'
 
@@ -48,11 +49,11 @@ group :test, :development do
   gem 'mailcatcher'
   gem 'poltergeist'
   gem "rails-erd"
-  
+
 end
 
 group :test do
-  gem 'capybara'    
+  gem 'capybara'
   gem 'shoulda-matchers'
   gem 'valid_attribute'
   gem 'email_spec'

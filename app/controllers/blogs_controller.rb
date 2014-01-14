@@ -5,13 +5,15 @@ class BlogsController < ApplicationController
   def index
     @search = Blog.search(params[:q])
     if params[:q]
-      @blogs = @search.result(distinct: true).paginate(:per_page => 10, :page => params[:page])
+      @blogs = @search.result(distinct: true)
+      @blogs = @blogs.paginate(:per_page => 10, :page => params[:page]).sort_by { |blog| blog.name.downcase }
+      # @blogs = @search.result(distinct: true).paginate(:per_page => 10, :page => params[:page])
       respond_to do |format|
         format.json {render json: @blogs}
         format.html {render html: @blogs}
       end
     else
-      @blogs = Blog.where(status: 'Verified').paginate(:per_page => 10, :page => params[:page])
+      @blogs = Blog.where(status: 'Verified').order("lower(name)").paginate(:per_page => 10, :page => params[:page])
     end
   end
 

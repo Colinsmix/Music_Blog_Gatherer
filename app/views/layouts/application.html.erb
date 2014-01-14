@@ -34,9 +34,10 @@
     <!-- Right Nav Section -->
     <ul class="right">
       <li class="active"><%= link_to 'Contact Us', new_message_path %></li>
-      <li class="active"><%= link_to 'Sign Up', new_user_registration_path if !user_signed_in? %></li>
-      <li class="active"><%= link_to 'Sign In', new_user_session_path if !user_signed_in? %></li>
-      <% if user_signed_in? %>
+      <% if !user_signed_in? %>
+      <li class="active"><%= link_to 'Sign Up', new_user_registration_path %></li>
+      <li class="active"><%= link_to 'Sign In', new_user_session_path %></li>
+      <% else %>
       <li class="active"><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
       <% end %>
     </ul>
@@ -57,7 +58,7 @@
     </div>
     <%= yield :extra_footer %>
 
-    
+
     <%= javascript_include_tag "application" %>
   </body>
 </html>

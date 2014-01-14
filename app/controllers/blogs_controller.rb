@@ -1,23 +1,23 @@
 class BlogsController < ApplicationController
-  before_filter :authenticate_user!, :except => [:show, :index]  
+  before_filter :authenticate_user!, :except => [:show, :index]
   before_action :set_blog, only: [:show, :edit, :update, :destroy]
 
   def index
     @search = Blog.search(params[:q])
     if params[:q]
-    @blogs = @search.result(distinct: true).paginate(:per_page => 10, :page => params[:page])
-    respond_to do |format|
-      format.json {render json: @blogs}
-      format.html {render html: @blogs}
-    end
+      @blogs = @search.result(distinct: true).paginate(:per_page => 10, :page => params[:page])
+      respond_to do |format|
+        format.json {render json: @blogs}
+        format.html {render html: @blogs}
+      end
     else
-    @blogs = Blog.where(status: 'Verified').paginate(:per_page => 10, :page => params[:page])
+      @blogs = Blog.where(status: 'Verified').paginate(:per_page => 10, :page => params[:page])
     end
   end
 
   def show
   end
-  
+
   def new
     @blog = Blog.new
   end

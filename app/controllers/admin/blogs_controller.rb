@@ -1,5 +1,6 @@
 
   class Admin::BlogsController < ApplicationController
+    before_filter :is_admin
 
     def index
       @blogs = Blog.where(status:"unverified")
@@ -24,6 +25,10 @@
     private
 
     def blog_params
-    params.require(:blog).permit(:name, :url, :description, :tag_list, :status)
+      params.require(:blog).permit(:name, :url, :description, :tag_list, :status)
+    end
+
+    def is_admin
+      redirect_to root_path, notice: 'Must be an admin!' if !user_signed_in? || current_user.role != 'Admin'
     end
   end

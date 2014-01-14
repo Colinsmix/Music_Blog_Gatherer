@@ -12,8 +12,8 @@
 <table id="blogs">
 <thead>
   <tr>
-    <th><%= sort_link(@search, :name, "Blog Name") %></th>
-    <th><%= sort_link(@search, :tag_list, "Tags") %></th>
+    <th>Name</th>
+    <th>Tags</th>
   </tr>
 </thead>
 <tbody>
@@ -56,7 +56,7 @@
           var favorite = '';
           var unfavorite = 'show';
         }
-          $('tbody').append('<tr><td><a href\=\"http://'+response.blogs[i].url+'\">'+response.blogs[i].name+'</a></td><td>'+response.blogs[i].tag_list+'</td><% if user_signed_in? %><td data-blog-id='+ response.blogs[i].id +' class="button unfavorite ' + favorite +'" onclick="unfavoriteBlog(event)">Unfavorite Blog</td><td data-blog-id='+ response.blogs[i].id +' class="button favorite ' + unfavorite + '" onclick="favoriteBlog(event)">Favorite Blog</td><td data-blog-id=' + response.blogs[i].id +' class="button like ' + '" onclick="likeBlog(event)">Like</td><td data-blog-id=' + response.blogs[i].id +' class="button dislike '+ '" onclick="dislikeBlog(event)">Dislike</td><% end %></tr>');
+          $('tbody').append('<tr><td><a href\=\"http://'+response.blogs[i].url+'\">'+response.blogs[i].name+'</a></td><td>'+response.blogs[i].tag_list+'</td><% if user_signed_in? %><td data-blog-id='+ response.blogs[i].id +' class="button unfavorite ' + favorite +'" onclick="unfavoriteBlog(event)">Unfavorite Blog</td><td data-blog-id='+ response.blogs[i].id +' class="button favorite ' + unfavorite + '" onclick="favoriteBlog(event)">Favorite Blog</td><td data-blog-id=' + response.blogs[i].id +' class="button like ' + '" onclick="likeBlog(event)">Like</td><td data-blog-id=' + response.blogs[i].id +' class="button dislike '+ '" onclick="dislikeBlog(event)">Dislike</td><td><a href\=\"/blogs/'+response.blogs[i].id+'/comments\">Comments</a><% end %></tr>');
           $('.paginateblogs').html('');
         }
 

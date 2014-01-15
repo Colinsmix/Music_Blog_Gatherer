@@ -1,0 +1,28 @@
+<%= hidden_field_tag :direction, params[:direction] %>
+<%= hidden_field_tag :sort, params[:sort] %>
+
+<table>
+<thead>
+  <tr>
+    <th><%= sortable "name", "Name" %></th>
+    <th>Tags</th>
+  </tr>
+</thead>
+<tbody>
+  <% @blogs.each do |blog| %>
+    <tr>
+      <td><%= link_to "#{blog.name}", "http://#{blog.url}" %></td>
+      <td><%= blog.tag_list %></td>
+      <% if user_signed_in? %>
+        <td data-blog-id='<%= blog.id %>' class="button unfavorite <%= 'show' if blog.check_favorite?(current_user.id) %>" onclick='unfavoriteBlog(event)'>Unfavorite Blog</td>
+        <td data-blog-id='<%= blog.id %>' class="button favorite <%= 'show' if !blog.check_favorite?(current_user.id) %>" onclick='favoriteBlog(event)'>Favorite Blog</td>
+        <td data-blog-id='<%= blog.id %>' class="button like" onclick='likeBlog(event)'>Like</td>
+        <td data-blog-id='<%= blog.id %>' class="button dislike" onclick='dislikeBlog(event)'>Dislike</td>
+        <td><%= link_to 'Comments', blog_comments_path(blog) %>
+
+    <% end %>
+    </tr>
+  <% end %>
+</tbody>
+</table>
+<div class="pagination"><%= will_paginate @blogs %></div>

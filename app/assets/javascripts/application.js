@@ -17,3 +17,14 @@
 
 
 $(function(){ $(document).foundation(); });
+
+$(function () {
+  $(document).on("click", '#blogs th a, #blogs .pagination a', function () {
+    $.getScript(this.href);
+    return false;
+  });
+  $('#blogs_search input').keyup(function () {
+    $.get($("#blogs_search").attr("action"), $("#blogs_search").serialize(), null, 'script');
+    return false;
+  });
+});

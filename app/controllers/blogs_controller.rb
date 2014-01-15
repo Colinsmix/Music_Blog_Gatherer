@@ -3,18 +3,7 @@ class BlogsController < ApplicationController
   before_action :set_blog, only: [:show, :edit, :update, :destroy]
 
   def index
-    @search = Blog.search(params[:q])
-    if params[:q]
-      @blogs = @search.result(distinct: true)
-      @blogs = @blogs.paginate(:per_page => 10, :page => params[:page]).sort_by { |blog| blog.name.downcase }
-      # @blogs = @search.result(distinct: true).paginate(:per_page => 10, :page => params[:page])
-      respond_to do |format|
-        format.json {render json: @blogs}
-        format.html {render html: @blogs}
-      end
-    else
-      @blogs = Blog.where(status: 'Verified').order("lower(name)").paginate(:per_page => 10, :page => params[:page])
-    end
+    @blogs = Blog.where(status: "Verified").search(params[:search]).order("blogs.#{sort_column} #{sort_direction}").paginate(:per_page => 5, :page => params[:page])
   end
 
   def show
@@ -83,6 +72,14 @@ class BlogsController < ApplicationController
 
   def blog_params
     params.require(:blog).permit(:name, :url, :description)
+  end
+
+  def sort_column
+  Blog.column_names.include?(params[:sort]) ? params[:sort] : "name"
+  end
+
+  def sort_direction
+  %w[asc desc].include?(params[:direction]) ?  params[:direction] : "asc"
   end
 
 end

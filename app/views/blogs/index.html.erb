@@ -1,69 +1,17 @@
 <h1> Blogs </h1>
-<%= search_form_for @search do |f| %>
-  <div class = "search">
-    <%= f.text_field :name_or_tags_name_cont %>
-  </div>
-  <%= f.hidden_field :status_cont, value: "Verified" %>
 
-  <%= f.submit %>
+<%= form_tag blogs_path, :method => 'get', :id => "blogs_search" do %>
+  <p>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Search", :name => nil %>
+  </p>
+  <div id="blogs"><%= render 'blogs' %></div>
 <% end %>
-<%= link_to 'Find Random Blog', "http://#{@blogs.sample.url}" %>
-
-<table id="blogs">
-<thead>
-  <tr>
-    <th>Name</th>
-    <th>Tags</th>
-  </tr>
-</thead>
-<tbody>
-  <% @blogs.each do |blog| %>
-    <tr>
-      <td><%= link_to "#{blog.name}", "http://#{blog.url}" %></td>
-      <td><%= blog.tag_list %></td>
-      <% if user_signed_in? %>
-        <td data-blog-id='<%= blog.id %>' class="button unfavorite <%= 'show' if blog.check_favorite?(current_user.id) %>" onclick='unfavoriteBlog(event)'>Unfavorite Blog</td>
-        <td data-blog-id='<%= blog.id %>' class="button favorite <%= 'show' if !blog.check_favorite?(current_user.id) %>" onclick='favoriteBlog(event)'>Favorite Blog</td>
-        <td data-blog-id='<%= blog.id %>' class="button like" onclick='likeBlog(event)'>Like</td>
-        <td data-blog-id='<%= blog.id %>' class="button dislike" onclick='dislikeBlog(event)'>Dislike</td>
-        <td><%= link_to 'Comments', blog_comments_path(blog) %>
-
-    <% end %>
-    </tr>
-  <% end %>
-</tbody>
-</table>
-<div class = "paginateblogs"><%= will_paginate @blogs %></div>
 
 
-<% content_for :extra_footer do %>
 <script>
-  window.onload=function(){
-    blogSearch();
-  }
 
-  var blogSearch = function(){
-    $('.search').keyup(function(e){
-      e.preventDefault();
-      var data = {q: {name_or_tags_name_cont: $('input', '.search').val(), status_cont: 'Verified'}};
-      $.get('/', data, function(response){
-        $('tbody').html('');
-        for(var i = 0; i < response.blogs.length; i++){
-        if (response.blogs[i].favorite_user == true){
-          var favorite = 'show';
-          var unfavorite = '';
-        }else{
-          var favorite = '';
-          var unfavorite = 'show';
-        }
-        if (response.blogs[i].status == 'Verified'){
-          $('tbody').append('<tr><td><a href\=\"http://'+response.blogs[i].url+'\">'+response.blogs[i].name+'</a></td><td>'+response.blogs[i].tag_list+'</td><% if user_signed_in? %><td data-blog-id='+ response.blogs[i].id +' class="button unfavorite ' + favorite +'" onclick="unfavoriteBlog(event)">Unfavorite Blog</td><td data-blog-id='+ response.blogs[i].id +' class="button favorite ' + unfavorite + '" onclick="favoriteBlog(event)">Favorite Blog</td><td data-blog-id=' + response.blogs[i].id +' class="button like ' + '" onclick="likeBlog(event)">Like</td><td data-blog-id=' + response.blogs[i].id +' class="button dislike '+ '" onclick="dislikeBlog(event)">Dislike</td><td><a href\=\"/blogs/'+response.blogs[i].id+'/comments\">Comments</a><% end %></tr>');
-        }}
-
-      });
-    });
-  }
-  var unfavoriteBlog = function(e){
+var unfavoriteBlog = function(e){
       e.preventDefault();
       var target = $(e.target);
       $('.unfavorite', target.parent()).toggle();
@@ -96,9 +44,5 @@
       $.get('blogs/' + target.data('blog-id') + '/dislike', function(response){
       });
   }
-</script>
-<% end %>
 
-<% if false %>
-change the link-tos to be a tags
-<% end %>
+  </script>

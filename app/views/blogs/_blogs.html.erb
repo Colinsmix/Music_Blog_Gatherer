@@ -16,8 +16,8 @@
       <% if user_signed_in? %>
         <td data-blog-id='<%= blog.id %>' class="button unfavorite <%= 'show' if blog.check_favorite?(current_user.id) %>" onclick='unfavoriteBlog(event)'>Unfavorite Blog</td>
         <td data-blog-id='<%= blog.id %>' class="button favorite <%= 'show' if !blog.check_favorite?(current_user.id) %>" onclick='favoriteBlog(event)'>Favorite Blog</td>
-        <td data-blog-id='<%= blog.id %>' class="button like" onclick='likeBlog(event)'>Like</td>
-        <td data-blog-id='<%= blog.id %>' class="button dislike" onclick='dislikeBlog(event)'>Dislike</td>
+        <div class='liking'><td data-blog-id='<%= blog.id %>' class="button like" onclick='likeBlog(event)'>Like <%= blog.likes.size %></td>
+        <td data-blog-id='<%= blog.id %>' class="button dislike" onclick='dislikeBlog(event)'>Dislike <%= blog.dislikes.size %></td></div>
         <td><%= link_to 'Comments', blog_comments_path(blog) %>
 
     <% end %>

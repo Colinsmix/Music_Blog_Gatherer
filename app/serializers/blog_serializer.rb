@@ -1,5 +1,5 @@
 class BlogSerializer < ActiveModel::Serializer
-  attributes :id, :name, :description, :tag_list, :favorite_user, :url, :status
+  attributes :id, :favorite_user
 
   def favorite_user
     if current_user

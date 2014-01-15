@@ -19,7 +19,7 @@
 $(function(){ $(document).foundation(); });
 
 $(function () {
-  $(document).on("click", '#blogs th a, #blogs .pagination a', function () {
+  $(document).on("click", '#blogs th a, #blogs .pagination a, #blogs .like, #blogs .dislike', function () {
     $.getScript(this.href);
     return false;
   });

@@ -7,17 +7,18 @@ So that I can find them in my profile for easy access.) do
 # Acceptance Criteria
 #  - While searching blogs, I can click a favorite button to add a blog to my favorites.
 #  - After adding a blog to my favorites, I can view it in a list on my profile page.
-#  - I can remove unwanted favorites from my favorite list by clicking a checkbox. 
+#  - I can remove unwanted favorites from my favorite list by clicking a checkbox.
   let!(:user){ FactoryGirl.build(:user) }
   let!(:blog1){ FactoryGirl.create(:blog, tag_list: ['Jazz', 'Rock'], status: 'Verified') }
 
-  scenario 'User adds a blog to their favorites' do
+  scenario 'User adds a blog to their favorites', js: true do
     user.save!
     sign_in_as(user)
     visit root_path
-    click_link('Favorite this blog')
+    save_and_open_page
+    click_button('Favorite Blog')
 
-    expect(page).to have_link('Unfavorite this blog')
+    expect(page).to have_button('Unfavorite Blog')
   end
 
   scenario 'User removes a blog from their favorites' do
@@ -35,7 +36,7 @@ So that I can find them in my profile for easy access.) do
 
     expect(page).to_not have_link('Favorite this blog')
     expect(page).to_not have_link('Unfavorite this blog')
-  end 
+  end
 
   scenario 'User can access and remove favorites from their profile page' do
     user.save!

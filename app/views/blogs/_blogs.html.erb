@@ -25,4 +25,9 @@
   <% end %>
 </tbody>
 </table>
-<div class="pagination"><%= will_paginate @blogs %></div>
+<div class="digg_pagination pagination">
+    <div class="page_info">
+      <%= page_entries_info @posts %>
+    </div>
+    <%= will_paginate @blogs, :container => false %>
+  </div>

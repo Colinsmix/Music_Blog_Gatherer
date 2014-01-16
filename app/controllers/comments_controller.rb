@@ -41,7 +41,7 @@ class CommentsController < ApplicationController
 
   def destroy
     @blog = Blog.find(params[:blog_id])
-    @comment = @blog.comments.build(comment_params)
+    @comment = Comment.find(params[:id])
     if @comment.destroy
       redirect_to blog_comments_path(@blog), notice: 'Comment successfully destroyed'
     end

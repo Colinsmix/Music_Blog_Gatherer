@@ -12,7 +12,11 @@
       <tr>
         <td><%= comment.body %></td>
         <td><%= comment.anonymous ? "Anonymous" : comment.user.email %>
-        <td><%= link_to 'Edit your Comment', edit_blog_comment_path(comment.blog, comment) if comment.user == current_user %>
+        <% if comment.user == current_user %>
+          <td><%= link_to 'Edit', edit_blog_comment_path(comment.blog, comment) %>
+          <td><%= link_to 'Delete', blog_comment_path(comment.blog, comment), method: :delete %>
+        <% end %>
+
       </tr>
     <% end %>
   </tbody>

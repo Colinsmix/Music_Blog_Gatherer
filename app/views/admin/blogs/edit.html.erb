@@ -3,7 +3,7 @@
     <%= f.input :name %>
     <%= f.input :url %>
     <%= f.input :description %>
-    <%= f.input :tag_list %>
+    <%= f.input :tag_list, placeholder: 'Enter tags here, comma seperated' %>
     <%= f.input :status, wrapper_html: { id: 'blog_verified' }, collection: ["Verified" , "Denied"], as: :radio_buttons %>
     <%= f.button :submit, 'Verify' %>
   <% end %>

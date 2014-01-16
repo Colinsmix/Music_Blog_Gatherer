@@ -4,9 +4,9 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.input :name, :autofocus => true, label: 'Blog Title' %>
-    <%= f.input :url, :required => true, label: 'Website Address' %>
-    <%= f.input :description, label: 'Please write a short description.' %>
+    <%= f.input :name, :autofocus => true, label: 'Blog Title', placeholder: 'Enter the Title of the Blog here!' %>
+    <%= f.input :url, :required => true, label: 'Website Address', placeholder: 'The Website Address (example: www.exampleblog.com)' %>
+    <%= f.input :description, label: 'A Short Description', placeholder: 'Please Enter your Description Here' %>
   </div>
 
   <div class="form-actions">

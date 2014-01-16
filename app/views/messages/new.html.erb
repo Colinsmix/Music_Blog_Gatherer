@@ -1,10 +1,10 @@
-<h1> New Message </h1>
+<h1> Let us know what you think! </h1>
 
 <%= simple_form_for @message do |f| %>
-  <%= f.input :email %>
-  <%= f.input :subject %>
-  <%= f.input :description %>
-  <%= f.input :first_name %>
-  <%= f.input :last_name %>
+  <%= f.input :email, label: 'Your Email Address' %>
+  <%= f.input :subject, label: 'Subject' %>
+  <%= f.input :description, label: 'Tell us More!' %>
+  <%= f.input :first_name, label: 'First Name' %>
+  <%= f.input :last_name, label: 'Last Name' %>
   <%= f.submit %>
 <% end %>

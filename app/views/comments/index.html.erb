@@ -12,6 +12,7 @@
       <tr>
         <td><%= comment.body %></td>
         <td><%= comment.anonymous ? "Anonymous" : comment.user.email %>
+        <td><%= link_to 'Edit your Comment', edit_blog_comment_path(comment.blog, comment) if comment.user == current_user %>
       </tr>
     <% end %>
   </tbody>

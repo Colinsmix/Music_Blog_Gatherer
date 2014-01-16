@@ -1,4 +1,6 @@
 class CommentsController < ApplicationController
+  before_filter :user_made_comment, only: [:edit, :update, :destroy]
+
 
   def index
     @blog = Blog.find(params[:blog_id])
@@ -49,6 +51,12 @@ class CommentsController < ApplicationController
 
   def comment_params
     params.require(:comment).permit(:body, :anonymous)
+  end
+
+  def user_made_comment
+    @comment = Comment.find(params[:id])
+    @blog = Blog.find(params[:blog_id])
+    redirect_to blog_comments_path(@blog), notice: 'Not your comment!' if @comment.user != current_user
   end
 end
 

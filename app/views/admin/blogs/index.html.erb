@@ -1,5 +1,8 @@
 <h1> Blog Verification </h1>
-
-<% @blogs.each do |blog| %>
-  <div><%= link_to blog.name, edit_admin_blog_path(blog) %></div>
+<% if @blogs.count != 0 %>
+  <% @blogs.each do |blog| %>
+    <div><%= link_to blog.name, edit_admin_blog_path(blog) %></div>
+  <% end %>
+<% else %>
+  <h2> No Blogs to Verify! </h2>
 <% end %>

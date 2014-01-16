@@ -1,4 +1,4 @@
-<h1> Comments </h1>
+<h1> Comments for <%= @blog.name %></h1>
 
 <table id="comments">
   <thead>
@@ -11,9 +11,9 @@
     <% @comments.each do |comment| %>
       <tr>
         <td><%= comment.body %></td>
-        <td><%= comment.user.email %>
+        <td><%= comment.anonymous ? "Anonymous" : comment.user.email %>
       </tr>
-    <% end %>     
+    <% end %>
   </tbody>
 </table>
 <%= link_to 'Add a Comment', new_blog_comment_path(@blog) %>

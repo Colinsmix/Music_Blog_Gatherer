@@ -43,6 +43,8 @@
     </ul>
     <!-- Left Nav Section -->
     <ul class="left">
+      <li><%= link_to 'Profile', user_path(current_user) if user_signed_in? %></li>
+      <li><%= link_to 'About Us', about_index_path %></li>
       <li><%= link_to 'Add a Blog', new_blog_path %></li>
       <li><%= link_to 'Verify Blogs', admin_blogs_path if (user_signed_in? &&current_user.role == 'Admin') %></li>
     </ul>

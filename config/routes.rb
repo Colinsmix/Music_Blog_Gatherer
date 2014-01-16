@@ -12,6 +12,7 @@ MusicBlog::Application.routes.draw do
     end
   end
   resources :messages
+  resources :about
 
   namespace :admin do
     resources :blogs

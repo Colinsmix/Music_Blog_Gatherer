@@ -15,8 +15,8 @@
 var unfavoriteBlog = function(e){
       e.preventDefault();
       var target = $(e.target);
-      $('.unfavorite', target.parent()).toggle();
-      $('.favorite', target.parent()).toggle();
+      $('.unfavorite', target.parent().parent()).toggle();
+      $('.favorite', target.parent().parent()).toggle();
       $.get('blogs/' + target.data('blog-id') + '/unfavorite', function(response){
       });
   }
@@ -24,8 +24,8 @@ var unfavoriteBlog = function(e){
   var favoriteBlog = function(e){
       e.preventDefault();
       var target = $(e.target);
-      $('.unfavorite', target.parent()).toggle();
-      $('.favorite', target.parent()).toggle();
+      $('.unfavorite', target.parent().parent()).toggle();
+      $('.favorite', target.parent().parent()).toggle();
       $.get('blogs/' + target.data('blog-id') + '/favorite', function(response){
       });
   }

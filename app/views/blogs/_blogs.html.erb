@@ -14,10 +14,14 @@
       <td><%= link_to "#{blog.name}", "http://#{blog.url}" %></td>
       <td><%= blog.tag_list %></td>
       <% if user_signed_in? %>
-        <td data-blog-id='<%= blog.id %>' class="button unfavorite <%= 'show' if blog.check_favorite?(current_user.id) %>" onclick='unfavoriteBlog(event)'>Unfavorite Blog</td>
-        <td data-blog-id='<%= blog.id %>' class="button favorite <%= 'show' if !blog.check_favorite?(current_user.id) %>" onclick='favoriteBlog(event)'>Favorite Blog</td>
-        <div class='liking'><td data-blog-id='<%= blog.id %>' class="button like <%= 'success' if current_user.voted_up_on? blog %> " onclick='likeBlog(event)'>Like <%= blog.likes.size %></td>
-        <td data-blog-id='<%= blog.id %>' class="button dislike <%= 'success' if current_user.voted_down_on? blog %>" onclick='dislikeBlog(event)'>Dislike <%= blog.dislikes.size %></td></div>
+        <td>
+          <div data-blog-id='<%= blog.id %>' class="button unfavorite <%= 'show' if blog.check_favorite?(current_user.id) %>" onclick='unfavoriteBlog(event)'>Unfavorite Blog</div>
+          <div data-blog-id='<%= blog.id %>' class="button favorite <%= 'show' if !blog.check_favorite?(current_user.id) %>" onclick='favoriteBlog(event)'>Favorite Blog</div>
+        </td>
+        <td>
+          <div data-blog-id='<%= blog.id %>' class="liking button like <%= 'success' if current_user.voted_up_on? blog %> " onclick='likeBlog(event)'>Like <%= blog.likes.size %></div>
+          <div data-blog-id='<%= blog.id %>' class="liking button dislike <%= 'success' if current_user.voted_down_on? blog %>" onclick='dislikeBlog(event)'>Dislike <%= blog.dislikes.size %></div>
+        </td>
         <td><%= link_to 'Comments', blog_comments_path(blog) %>
 
     <% end %>

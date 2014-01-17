@@ -6,9 +6,8 @@
   <tr>
     <th width='250'><%= sortable "name", "Name" %></th>
     <th width='200'>Tags</th>
-    <th width='200'></th>
-    <th width='210'></th>
-    <th width='75'></th>
+    <th width='100'></th>
+    <th width='300'></th>
   </tr>
 </thead>
 <tbody>
@@ -18,14 +17,14 @@
       <td><%= blog.tag_list %></td>
       <% if user_signed_in? %>
         <td>
-          <div data-blog-id='<%= blog.id %>' class="button unfavorite <%= 'show' if blog.check_favorite?(current_user.id) %>" onclick='unfavoriteBlog(event)'>Unfavorite Blog</div>
-          <div data-blog-id='<%= blog.id %>' class="button favorite <%= 'show' if !blog.check_favorite?(current_user.id) %>" onclick='favoriteBlog(event)'>Favorite Blog</div>
+          <div data-blog-id='<%= blog.id %>' class="unfavorite <%= 'show' if blog.check_favorite?(current_user.id) %>" onclick='unfavoriteBlog(event)'><a href="#" class="btn dark"><span class="favoritebutton"></span></a></div>
+          <div data-blog-id='<%= blog.id %>' class="favorite <%= 'show' if !blog.check_favorite?(current_user.id) %>" onclick='favoriteBlog(event)'><a href="#" class="btn dark">Favorite</a></div>
         </td>
         <td>
           <div data-blog-id='<%= blog.id %>' class="liking button like <%= 'success' if current_user.voted_up_on? blog %> " onclick='likeBlog(event)'>Like <%= blog.likes.size %></div>
           <div data-blog-id='<%= blog.id %>' class="liking button dislike <%= 'success' if current_user.voted_down_on? blog %>" onclick='dislikeBlog(event)'>Dislike <%= blog.dislikes.size %></div>
         </td>
-        <td><%= link_to 'Comments', blog_comments_path(blog) %>
+
 
     <% end %>
     </tr>
@@ -33,8 +32,5 @@
 </tbody>
 </table>
 <div class="digg_pagination pagination togglehide">
-    <div class="page_info">
-      <%= page_entries_info @posts %>
-    </div>
     <%= will_paginate @blogs, :container => false %>
   </div>

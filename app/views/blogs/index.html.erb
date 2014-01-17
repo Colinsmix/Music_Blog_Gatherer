@@ -16,12 +16,13 @@
 <br><br>
   <div id="search">
     <div class=" searchbartop small-6 small-centered columns"></div>
-    <div class="searchbarcenter small-6 small-centered columns">
+    <div class="search square searchbarcenter small-6 small-centered columns searchcolor">
       <%= form_tag blogs_path, :method => 'get', :id => "blogs_search" do %>
         <p>
           <%= text_field_tag :search, params[:search], placeholder: 'Filter Your Search Here' %>
         </p>
     </div>
+  </div>
   <div id="blogs"></div>
   <% end %>
 

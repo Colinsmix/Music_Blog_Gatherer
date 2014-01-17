@@ -1,4 +1,4 @@
-<h1> Blogs </h1>
+<br><br>
 <div id="search">
 <%= form_tag blogs_path, :method => 'get', :id => "blogs_search" do %>
   <p>
@@ -6,7 +6,7 @@
     <%= submit_tag "Search", :name => nil %>
   </p>
 </div>
-  <div id="blogs"><%= render 'blogs' %></div>
+  <div id="blogs"></div>
 <% end %>
 
 

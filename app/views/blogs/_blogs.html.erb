@@ -1,7 +1,7 @@
 <%= hidden_field_tag :direction, params[:direction] %>
 <%= hidden_field_tag :sort, params[:sort] %>
 
-<table id="responsive" class='showtable'>
+<table id="responsive" class='togglehide'>
 <thead>
   <tr>
     <th><%= sortable "name", "Name" %></th>
@@ -33,7 +33,7 @@
   <% end %>
 </tbody>
 </table>
-<div class="digg_pagination pagination">
+<div class="digg_pagination pagination togglehide">
     <div class="page_info">
       <%= page_entries_info @posts %>
     </div>

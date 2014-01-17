@@ -18,10 +18,6 @@
 
 $(function(){ $(document).foundation(); });
 
-$( document ).ready(function() {
-  $('.showtable').hide();
-});
-
 $(function () {
   $(document).on("click", '#blogs th a, #blogs .pagination a, #blogs .like, #blogs .dislike', function () {
     $.getScript(this.href);
@@ -29,7 +25,7 @@ $(function () {
   });
   $('#blogs_search input').keyup(function () {
     $.get($("#blogs_search").attr("action"), $("#blogs_search").serialize(), null, 'script');
-    $('.showtable').show();
+    $('.togglehide').show();
     return false;
   });
 });

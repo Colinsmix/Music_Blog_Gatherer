@@ -9,3 +9,16 @@
 .show {
   display: block;
 }
+
+.searchbarcenter {
+  margin-top: 250px;
+}
+
+#search {
+  margin-top: 0;
+  transition: 1.0s;
+}
+
+.fly {
+  margin-top: -270px !important;
+}

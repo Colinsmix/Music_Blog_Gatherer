@@ -14,19 +14,27 @@
 </head>
 
 <br><br>
-<div id="search">
-<%= form_tag blogs_path, :method => 'get', :id => "blogs_search" do %>
-  <p>
-    <%= text_field_tag :search, params[:search], placeholder: 'Filter Your Search Here' %>
-    <%= submit_tag "Search", :name => nil %>
-  </p>
-</div>
+  <div id="search">
+    <div class=" searchbartop small-6 small-centered columns"></div>
+    <div class="searchbarcenter small-6 small-centered columns">
+      <%= form_tag blogs_path, :method => 'get', :id => "blogs_search" do %>
+        <p>
+          <%= text_field_tag :search, params[:search], placeholder: 'Filter Your Search Here' %>
+        </p>
+    </div>
   <div id="blogs"></div>
-<% end %>
-</div>
+  <% end %>
 
 <script>
 
+$(function(){
+  $('#search').click(function(e){
+    var search = $(e.target)
+    if (search.hasClass('fly') === false){
+      search.addClass('fly');
+    }
+  })
+})
 var unfavoriteBlog = function(e){
       e.preventDefault();
       var target = $(e.target);

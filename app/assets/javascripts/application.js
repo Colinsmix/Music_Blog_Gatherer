@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require foundation
+//= require backstretch.min
 //= require_tree .
 
 
@@ -29,3 +30,7 @@ $(function () {
     return false;
   });
 });
+
+$(function(){
+  $.backstretch("https://dl.dropboxusercontent.com/u/134623784/lifemusic.png");
+})

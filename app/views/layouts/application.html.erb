@@ -22,6 +22,8 @@
   </head>
 
   <body>
+    <%= javascript_include_tag "application" %>
+
     <nav class="top-bar" data-topbar data-options="is_hover: false">
       <ul class="title-area">
       <li class="name">
@@ -61,6 +63,5 @@
     <%= yield :extra_footer %>
 
 
-    <%= javascript_include_tag "application" %>
   </body>
 </html>

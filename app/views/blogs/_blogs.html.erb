@@ -1,11 +1,15 @@
 <%= hidden_field_tag :direction, params[:direction] %>
 <%= hidden_field_tag :sort, params[:sort] %>
 
-<table id="responsive">
+<table id="responsive" class='showtable'>
 <thead>
   <tr>
     <th><%= sortable "name", "Name" %></th>
     <th>Tags</th>
+    <th width='200'></th>
+    <th></th>
+    <th></th>
+    <th></th>
   </tr>
 </thead>
 <tbody>

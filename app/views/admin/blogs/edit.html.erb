@@ -5,7 +5,7 @@
     <%= f.input :description %>
     <%= f.input :tag_list, placeholder: 'Enter tags here, comma seperated' %>
     <%= f.input :status, wrapper_html: { id: 'blog_verified' }, collection: ["Verified" , "Denied"], as: :radio_buttons %>
-    <%= f.button :submit, 'Verify' %>
+    <%= f.button :submit, 'Verify', class: 'btn dark' %>
   <% end %>
 
   <%= link_to 'Back to List', admin_blogs_path %>

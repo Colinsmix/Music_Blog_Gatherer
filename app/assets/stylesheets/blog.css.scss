@@ -50,12 +50,22 @@
   left:485px;
 }
 
-.verifyblogheader {
-  position:absolute;
-  left:485px;
+.signinheader {
+  position:fixed;
+  left:570px;
 }
 
 .verifylist {
   position:absolute;
   left:580px;
+}
+
+.formfont {
+  font-family: helvetica, sans-serif;
+  color: #0C140F;
+  font-size: 20px;
+  letter-spacing: 0pt;
+  word-spacing: -0.2pt;
+  line-height: 1.2;
+  font-weight:bold;
 }

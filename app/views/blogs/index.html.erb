@@ -39,6 +39,7 @@ $(function(){
 var unfavoriteBlog = function(e){
       e.preventDefault();
       var target = $(e.target);
+      console.log("this runs too");
       $('.unfavorite', target.parent().parent()).toggle();
       $('.favorite', target.parent().parent()).toggle();
       $.get('blogs/' + target.data('blog-id') + '/unfavorite', function(response){
@@ -48,6 +49,7 @@ var unfavoriteBlog = function(e){
   var favoriteBlog = function(e){
       e.preventDefault();
       var target = $(e.target);
+      console.log("this runs");
       $('.unfavorite', target.parent().parent()).toggle();
       $('.favorite', target.parent().parent()).toggle();
       $.get('blogs/' + target.data('blog-id') + '/favorite', function(response){

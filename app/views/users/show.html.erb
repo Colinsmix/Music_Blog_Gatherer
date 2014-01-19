@@ -1,9 +1,9 @@
-<h1>Welcome, <% if current_user.first_name == '' || current_user.first_name.nil? %> 
+<h1>Welcome, <% if current_user.first_name == '' || current_user.first_name.nil? %>
               <%= current_user.email %>
               <% else %>
               <%= "#{current_user.first_name} #{current_user.last_name }" %>
               <% end %> </h1>
-              
+
 <h2> Favorite Blogs </h2>
   <table id="favorites">
     <thead>
@@ -19,7 +19,7 @@
           <td><%= blog.name %></td>
           <td><%= blog.description %></td>
           <td><%= blog.tag_list %></td>
-          <td data-blog-id='<%= blog.id %>' class="button unfavoritebutton show">Remove</td>
+          <td data-blog-id='<%= blog.id %>' class="btn dark unfavoritebutton show">Remove</td>
         </tr>
       <% end %>
     </tbody>
@@ -28,7 +28,7 @@
 
 <% if user_signed_in? %>
 <script>
-  window.onload=function(){ 
+  window.onload=function(){
       removeFromFavorites();
   }
 

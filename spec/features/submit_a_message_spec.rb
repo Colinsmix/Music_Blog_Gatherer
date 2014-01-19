@@ -20,12 +20,12 @@ So that I can ask questions or make comments about the site) do
     sign_in_as(user)
     visit root_path
     click_link 'Contact Us'
-    fill_in 'Email', :with => 'example@example.com'
-    fill_in 'Subject', :with => 'Example Subject'
-    fill_in 'Description', :with => 'Example Description'
-    fill_in 'First name', :with => 'John'
-    fill_in 'Last name', :with => 'Doe'
-    click_button('Create Message')
+    fill_in 'Email', with: 'example@example.com'
+    fill_in 'Subject', with: 'Example Subject'
+    fill_in "Tell us More!", with: 'Example Description'
+    fill_in 'First Name', with: 'John'
+    fill_in 'Last Name', with: 'Doe'
+    click_button('Send Message')
 
     expect(page).to have_content("Message Created Successfully")
     expect(page).to have_link('Add a Blog')
@@ -35,5 +35,5 @@ So that I can ask questions or make comments about the site) do
     expect(last_email).to have_subject('Message Received from Music Blog Gatherer')
     expect(last_email).to deliver_to(email)
     expect(last_email).to have_body_text('Example Description')
-  end  
+  end
 end

@@ -7,13 +7,14 @@
     <th width='250'><%= sortable "name", "Name" %></th>
     <th width='200'>Tags</th>
     <th width='100'></th>
-    <th width='300'></th>
+    <th width='100'></th>
+    <th></th>
   </tr>
 </thead>
 <tbody>
   <% @blogs.each do |blog| %>
     <tr>
-      <td><%= link_to "#{blog.name}", "http://#{blog.url}" %></td>
+      <div class="blognamefont"><td><%= link_to "#{blog.name}", "http://#{blog.url}" %></td></div>
       <td><%= blog.tag_list %></td>
       <% if user_signed_in? %>
         <td>
@@ -24,6 +25,7 @@
           <div data-blog-id='<%= blog.id %>' class="btn light liking like <%= 'success' if current_user.voted_up_on? blog %> " onclick='likeBlog(event)'><i class="fa fa-thumbs-up"></i><%= blog.likes.size %></div>
           <div data-blog-id='<%= blog.id %>' class="btn light liking dislike <%= 'success' if current_user.voted_down_on? blog %>" onclick='dislikeBlog(event)'><i class="fa fa-thumbs-down"></i><%= blog.dislikes.size %></div>
         </td>
+        <td><%= link_to "Comments", blog_comments_path(blog) %></td>
 
 
     <% end %>

@@ -10,14 +10,15 @@ So that I can save favorite blogs, and vote on blogs.) do
 
   context 'Signing Up' do
 
-    scenario 'Redirects the user to the profile page after sign up' do
+    scenario 'Redirects the user to the blog search after sign up' do
       visit root_path
       click_link 'Sign Up'
       fill_in "Email", :with => "example@example.com"
       fill_in "Password", :with => "passwordtest", :match => :prefer_exact
       fill_in "Password confirmation", :with => "passwordtest", :match => :prefer_exact
-      click_button "Sign up"
-      expect(page).to have_content("Welcome, example@example.com")
+      click_button "Sign Up Now"
+
+      expect(page).to have_content("Thanks for Signing Up!")
     end
   end
 end

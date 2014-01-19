@@ -4,33 +4,15 @@
       "/Users/colinshields/Dropbox/launchacademy/Projects/Music_Blog/spec/support/authentication_helper.rb": [
         1,
         1,
-        1,
-        1,
-        1,
-        1,
+        0,
+        0,
+        0,
+        0,
         null,
         null,
         1,
         0,
         0,
-        null,
-        null
-      ],
-      "/Users/colinshields/Dropbox/launchacademy/Projects/Music_Blog/app/controllers/application_controller.rb": [
-        1,
-        null,
-        null,
-        1,
-        1,
-        null,
-        1,
-        null,
-        1,
-        6,
-        null,
-        null,
-        1,
-        1,
         null,
         null
       ],
@@ -121,6 +103,24 @@
         null,
         null
       ],
+      "/Users/colinshields/Dropbox/launchacademy/Projects/Music_Blog/app/controllers/application_controller.rb": [
+        1,
+        null,
+        null,
+        1,
+        1,
+        null,
+        1,
+        null,
+        1,
+        2,
+        null,
+        null,
+        1,
+        1,
+        null,
+        null
+      ],
       "/Users/colinshields/Dropbox/launchacademy/Projects/Music_Blog/app/models/blog.rb": [
         1,
         null,
@@ -158,6 +158,6 @@
         null
       ]
     },
-    "timestamp": 1390159291
+    "timestamp": 1390159535
   }
 }

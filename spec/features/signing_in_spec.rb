@@ -12,21 +12,12 @@ So that I can see my favorite blogs, vote on blogs, and submit a blog.) do
 
   context 'Signing in' do
 
-    scenario 'I see my profile page if signed in on an account without a name' do
+    scenario 'I am redirected to the blog search after signing in' do
       user.save!
       sign_in_as(user)
 
-      expect(page).to have_content("Welcome, #{user.email}")
+      expect(page).to have_content("Thanks for Signing In!")
     end
-
-    scenario 'I see my profile page if signed in on an account with a name' do
-      user = FactoryGirl.build(:user, :with_name)
-      user.save!
-      sign_in_as(user)
-
-      expect(page).to have_content("Welcome, #{user.first_name} #{user.last_name}")
-    end
-
   end
 
   context 'Forgetting your password' do

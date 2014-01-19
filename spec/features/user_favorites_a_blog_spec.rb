@@ -21,7 +21,7 @@ So that I can find them in my profile for easy access.) do
     expect(page).to have_button('Unfavorite Blog')
   end
 
-  scenario 'User removes a blog from their favorites' do
+  scenario 'User removes a blog from their favorites', js: true do
     user.save!
     sign_in_as(user)
     visit root_path
@@ -31,14 +31,14 @@ So that I can find them in my profile for easy access.) do
     expect(page).to have_link('Favorite this blog')
   end
 
-  scenario 'Visitor does not have the option to favorite blogs' do
+  scenario 'Visitor does not have the option to favorite blogs', js: true do
     visit root_path
 
     expect(page).to_not have_link('Favorite this blog')
     expect(page).to_not have_link('Unfavorite this blog')
   end
 
-  scenario 'User can access and remove favorites from their profile page' do
+  scenario 'User can access and remove favorites from their profile page', js: true do
     user.save!
     sign_in_as(user)
     visit root_path

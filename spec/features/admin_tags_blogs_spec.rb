@@ -10,7 +10,7 @@ So that users have an easy and convenient way of searching for new music.) do
   let!(:user){ FactoryGirl.build(:user) }
   let!(:blog){ FactoryGirl.build(:blog) }
 
-  scenario 'Regular Users cannot see the verification page' do 
+  scenario 'Regular Users cannot see the verification page' do
     user.save!
     sign_in_as(user)
     visit root_path
@@ -36,9 +36,6 @@ So that users have an easy and convenient way of searching for new music.) do
     click_link('Verify Blogs')
     click_link(blog.name)
 
-    expect(page).to have_content(blog.name)
-    expect(page).to have_content(blog.url)
-    expect(page).to have_content(blog.description)
     expect(page).to have_content('Tagging')
   end
 
@@ -51,7 +48,7 @@ So that users have an easy and convenient way of searching for new music.) do
     click_link('Verify Blogs')
     click_link(blog.name)
     fill_in "Tag list", with: 'Heavy Metal, Rock, Jazz'
-    within '#blog_verified' do 
+    within '#blog_verified' do
       choose('Verified')
     end
 
@@ -63,5 +60,5 @@ So that users have an easy and convenient way of searching for new music.) do
   end
 
 
-  
+
 end

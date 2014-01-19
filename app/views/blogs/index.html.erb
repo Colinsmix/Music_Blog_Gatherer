@@ -58,6 +58,7 @@ var unfavoriteBlog = function(e){
 
   var likeBlog = function(e){
       e.preventDefault();
+      console.log("Running");
       var target = $(e.target);
       $.get('blogs/' + target.data('blog-id') + '/like', function(response){
       });
@@ -65,6 +66,7 @@ var unfavoriteBlog = function(e){
 
   var dislikeBlog = function(e){
       e.preventDefault();
+      console.log("Running Also");
       var target = $(e.target);
       $.get('blogs/' + target.data('blog-id') + '/dislike', function(response){
       });

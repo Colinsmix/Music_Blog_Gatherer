@@ -4,7 +4,7 @@ feature 'User adds a blog onto the website', %q(
 As a user.
 I can add a blog onto the website
 So that it can be searched for by other users.) do
-#  Acceptance Criteria  
+#  Acceptance Criteria
 # - I enter a blog into a form, storing : Blog Title, Blog URL, Description.
 # - If I fail to complete any line of the form, the form will not complete.
 # - When I complete the form, the data is stored in the database labeled 'unverified'.
@@ -25,9 +25,9 @@ So that it can be searched for by other users.) do
     visit root_path
 
     click_link 'Add a Blog'
-    fill_in 'Name', :with => blog.name 
-    fill_in 'Url', :with => blog.url
-    fill_in 'Description', :with => blog.description
+    fill_in 'Blog Title', with: blog.name
+    fill_in 'Website Address', with: blog.url
+    fill_in 'A Short Description', with: blog.description
     click_button 'Create Blog'
 
     expect(page).to have_content('Blog Added!')
@@ -43,8 +43,6 @@ So that it can be searched for by other users.) do
     click_link 'Add a Blog'
     click_button 'Create Blog'
 
-    expect(page).to have_content("Namecan't be blank")
-    expect(page).to have_content("Urlcan't be blank")
-    expect(page).to have_content("Descriptioncan't be blank")
+    expect(page).to have_content("can't be blank")
   end
 end

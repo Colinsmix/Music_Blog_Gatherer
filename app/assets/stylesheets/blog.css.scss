@@ -100,8 +100,13 @@
     top: 50%;
     text-align:center;
   }
+  th{
+    top: 50%;
+    text-align:center;
+  }
   a{
     vertical-align:middle;
+    font-size:1.25em;
   }
 }
 
@@ -119,4 +124,10 @@
 .centerbuttonsignin{
   margin-left: 7%;
   margin-right: 93%;
+}
+
+.centerbuttoncomment{
+  margin-left: 35%;
+  margin-right: 65%;
+  width: 200px;
 }

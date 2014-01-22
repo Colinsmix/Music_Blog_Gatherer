@@ -1,24 +1,31 @@
-<h1> Comments for <%= @blog.name %></h1>
-
-<table id="comments">
-  <thead>
-    <tr>
-      <th>Comment</th>
-      <th>User</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @comments.each do |comment| %>
+<div class="siteheader"><h1> Comments for <%= @blog.name %></h1></div>
+<div class="containerdiv">
+  <table id="comments">
+    <thead>
       <tr>
-        <td><%= comment.body %></td>
-        <td><%= comment.anonymous ? "Anonymous" : comment.user.email %>
-        <% if comment.user == current_user %>
-          <td><%= link_to 'Edit', edit_blog_comment_path(comment.blog, comment) %>
-          <td><%= link_to 'Delete', blog_comment_path(comment.blog, comment), method: :delete %>
-        <% end %>
-
+        <th>Comment</th>
+        <th>User</th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
-<%= link_to 'Add a Comment', new_blog_comment_path(@blog) %>
+    </thead>
+    <tbody>
+      <% @comments.each do |comment| %>
+        <tr>
+          <td><%= comment.body %></td>
+          <td><%= comment.anonymous ? "Anonymous" : comment.user.email %></td>
+          <% if comment.user == current_user %>
+            <td><%= link_to 'Edit', edit_blog_comment_path(comment.blog, comment) %></td>
+            <td><%= link_to 'Delete', blog_comment_path(comment.blog, comment), method: :delete %></td>
+          <% end %>
+
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+<div class="centerbuttoncomment">
+  <div class="btn dark">
+    <%= link_to 'Add a Comment', new_blog_comment_path(@blog) %>
+  </div>
+</div>
+
+

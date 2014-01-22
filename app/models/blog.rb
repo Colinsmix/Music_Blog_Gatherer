@@ -26,7 +26,7 @@ class Blog < ActiveRecord::Base
 
   def self.search(search)
     if search
-      Blog.includes(:tags).where('tags.name LIKE ? OR blogs.name LIKE ?',"%#{search}%", "%#{search}%").references(:tags)
+      Blog.includes(:tags).where('tags.name ILIKE ? OR blogs.name ILIKE ?',"%#{search}%", "%#{search}%").references(:tags)
     else
       scoped
     end

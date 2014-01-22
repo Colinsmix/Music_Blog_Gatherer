@@ -20,6 +20,10 @@
 $(function(){ $(document).foundation(); });
 
 $(function () {
+  $('#search').on('submit', function(event) {
+    event.preventDefault();
+  });
+
   $(document).on("click", '#blogs th a, #blogs .pagination a, #blogs .like, #blogs .dislike', function () {
     $.getScript(this.href);
     return false;

@@ -1,9 +1,22 @@
-<div class="newblogheader"><h1> Blog Verification </h1></div>
-<br><br><br><br><br><br>
+<div class="siteheader"><h1> Blog Verification </h1></div>
 <% if @blogs.count != 0 %>
-  <% @blogs.each do |blog| %>
-    <div class="verifylist"><%= link_to blog.name, edit_admin_blog_path(blog) %></div>
-  <% end %>
+    <div class="containerdiv">
+      <table align="center" id="responsive" class="verifylist">
+        <thead>
+          <tr>
+          </tr>
+        </thead>
+        <tbody>
+          <% @blogs.each do |blog| %>
+          <tr>
+            <td><%= link_to blog.name, edit_admin_blog_path(blog) %></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
 <% else %>
   <div class="newblogheader"><h2> No Blogs to Verify! </h2></div>
 <% end %>
+
+

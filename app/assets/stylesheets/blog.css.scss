@@ -27,7 +27,7 @@
 }
 
 .fly {
-  margin-top: -280px !important;
+  margin-top: -270px !important;
 }
 
 .pagination {
@@ -70,11 +70,25 @@
   left:500px;
 }
 
-.verifylist {
-  position:absolute;
-  left:580px;
+.containerdiv{
+  width: 400px;
+  margin-left: auto;
+  margin-right: auto;
 }
-
+.verifylist {
+  td {
+    top: 50%;
+    text-align:center;
+    a {
+      vertical-align:middle;
+    }
+  }
+}
+.siteheader {
+  margin-left: auto;
+  margin-right: auto;
+  text-align:center;
+}
 .formfont {
   font-family: helvetica, sans-serif;
   color: #0C140F;

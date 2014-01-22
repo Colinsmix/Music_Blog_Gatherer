@@ -1,36 +1,37 @@
 <%= hidden_field_tag :direction, params[:direction] %>
 <%= hidden_field_tag :sort, params[:sort] %>
-
-<table id="responsive" class='togglehide'>
-<thead>
-  <tr>
-    <th width='250'><%= sortable "name", "Name" %></th>
-    <th width='200'>Tags</th>
-    <th width='100'></th>
-    <th width='160'></th>
-    <th></th>
-  </tr>
-</thead>
-<tbody>
-  <% @blogs.each do |blog| %>
+<div class='tableposition'>
+  <table align="center" id="responsive" class='togglehide table'>
+  <thead>
     <tr>
-      <div class="blognamefont"><td><%= link_to "#{blog.name}", "http://#{blog.url}" %></td></div>
-      <td><%= blog.tag_list %></td>
-      <% if user_signed_in? %>
-        <td>
-          <div class="unfavorite <%= 'show' if blog.check_favorite?(current_user.id) %>" onclick='unfavoriteBlog(event)'><a href="#" data-blog-id='<%= blog.id %>' class="btn dark"><i class="fa fa-star"></i></a></div>
-          <div class="favorite <%= 'show' if !blog.check_favorite?(current_user.id) %>" onclick='favoriteBlog(event)'><a href="#" data-blog-id='<%= blog.id %>' class="btn dark"><i class="fa fa-star-o"></i></a></div>
-        </td>
-        <td>
-          <div data-blog-id='<%= blog.id %>' class="btn light liking like <%= 'success' if current_user.voted_up_on? blog %> " onclick='likeBlog(event)'><i class="fa fa-thumbs-up"></i><%= blog.likes.size %></div>
-          <div data-blog-id='<%= blog.id %>' class="btn light liking dislike <%= 'success' if current_user.voted_down_on? blog %>" onclick='dislikeBlog(event)'><i class="fa fa-thumbs-down"></i><%= blog.dislikes.size %></div>
-        </td>
-        <td><%= link_to "Comments", blog_comments_path(blog) %></td>
-    <% end %>
+      <th width='250'><%= sortable "name", "Name" %></th>
+      <th width='200'>Tags</th>
+      <th width='100'></th>
+      <th width='160'></th>
+      <th></th>
     </tr>
-  <% end %>
-</tbody>
-</table>
+  </thead>
+  <tbody>
+    <% @blogs.each do |blog| %>
+      <tr>
+        <div class="blognamefont"><td><%= link_to "#{blog.name}", "http://#{blog.url}" %></td></div>
+        <td><%= blog.tag_list %></td>
+        <% if user_signed_in? %>
+          <td>
+            <div class="unfavorite <%= 'show' if blog.check_favorite?(current_user.id) %>" onclick='unfavoriteBlog(event)'><a href="#" data-blog-id='<%= blog.id %>' class="btn dark"><i class="fa fa-star"></i></a></div>
+            <div class="favorite <%= 'show' if !blog.check_favorite?(current_user.id) %>" onclick='favoriteBlog(event)'><a href="#" data-blog-id='<%= blog.id %>' class="btn dark"><i class="fa fa-star-o"></i></a></div>
+          </td>
+          <td>
+            <div data-blog-id='<%= blog.id %>' class="btn light liking like <%= 'success' if current_user.voted_up_on? blog %> " onclick='likeBlog(event)'><i class="fa fa-thumbs-up"></i><%= blog.likes.size %></div>
+            <div data-blog-id='<%= blog.id %>' class="btn light liking dislike <%= 'success' if current_user.voted_down_on? blog %>" onclick='dislikeBlog(event)'><i class="fa fa-thumbs-down"></i><%= blog.dislikes.size %></div>
+          </td>
+          <td><%= link_to "Comments", blog_comments_path(blog) %></td>
+      <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+  </table>
+</div>
 <div class="digg_pagination pagination togglehide">
-    <%= will_paginate @blogs, :container => false %>
-  </div>
+  <%= will_paginate @blogs, :container => false %>
+</div>

@@ -1,22 +1,25 @@
-<h1>Welcome, <% if current_user.first_name == '' || current_user.first_name.nil? %>
+<div class="siteheader"><h1>Welcome, <% if current_user.first_name == '' || current_user.first_name.nil? %>
               <%= current_user.email %>
               <% else %>
               <%= "#{current_user.first_name} #{current_user.last_name }" %>
               <% end %> </h1>
 
 <h2> Favorite Blogs </h2>
+</div>
+<div class="containerdiv">
   <table id="favorites">
     <thead>
       <tr>
-        <th>Name</th>
-        <th>Description</th>
-        <th>Tag List</th>
+        <th width="200">Name</th>
+        <th width="200">Description</th>
+        <th width="150">Tag List</th>
+        <th width="150"></th>
       </tr>
     </thead>
     <tbody>
       <% @user.find_favorites.each do |blog| %>
         <tr>
-          <td><%= blog.name %></td>
+          <td><%= link_to "#{blog.name}", "http://#{blog.url}" %></td>
           <td><%= blog.description %></td>
           <td><%= blog.tag_list %></td>
           <td data-blog-id='<%= blog.id %>' class="btn dark unfavoritebutton show">Remove</td>
@@ -24,6 +27,7 @@
       <% end %>
     </tbody>
   </table>
+</div>
 
 
 <% if user_signed_in? %>

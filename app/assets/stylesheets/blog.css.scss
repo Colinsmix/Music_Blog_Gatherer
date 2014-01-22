@@ -84,11 +84,7 @@
     }
   }
 }
-.siteheader {
-  margin-left: auto;
-  margin-right: auto;
-  text-align:center;
-}
+
 .formfont {
   font-family: helvetica, sans-serif;
   color: #0C140F;
@@ -99,7 +95,28 @@
   font-weight:bold;
 }
 
+.tableposition {
+  td{
+    top: 50%;
+    text-align:center;
+  }
+  a{
+    vertical-align:middle;
+  }
+}
 
+.siteheader {
+  margin-left: auto;
+  margin-right: auto;
+  text-align:center;
+}
 
+.centerbutton{
+  margin-left: 5%;
+  margin-right: 95%;
+}
 
-
+.centerbuttonsignin{
+  margin-left: 7%;
+  margin-right: 93%;
+}

@@ -1,14 +1,16 @@
 <%= hidden_field_tag :direction, params[:direction] %>
 <%= hidden_field_tag :sort, params[:sort] %>
 <div class='tableposition'>
-  <table align="center" id="responsive" class='togglehide table'>
+  <table align="center" id="responsive" class='togglehide table tableposition'>
   <thead>
     <tr>
       <th width='250'><%= sortable "name", "Name" %></th>
       <th width='200'>Tags</th>
-      <th width='100'></th>
-      <th width='160'></th>
-      <th></th>
+      <% if user_signed_in? %>
+        <th width='100'></th>
+        <th width='160'></th>
+        <th></th>
+      <% end %>
     </tr>
   </thead>
   <tbody>

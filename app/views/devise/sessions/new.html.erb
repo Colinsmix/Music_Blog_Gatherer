@@ -1,5 +1,4 @@
-<div class="signinheader"><h2>Sign in</h2></div>
-<br><br><br>
+<div class="siteheader"><h2>Sign in</h2></div>
 
 <%= simple_form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
 
@@ -9,9 +8,10 @@
     <%= f.input :remember_me, :as => :boolean, label_html: {class: 'formfont' } if devise_mapping.rememberable? %>
   </div>
 
-  <div class="form-actions">
+  <div class="form-actions centerbuttonsignin">
     <%= f.button :submit, 'Sign In Now', class: 'btn dark' %>
   </div>
 <% end %>
+<br><br>
 
 <div class='formfont'><%= render "devise/shared/links" %></div>

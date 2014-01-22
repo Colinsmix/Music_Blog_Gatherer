@@ -36,6 +36,6 @@ $(function () {
 });
 
 $(function(){
-  $.backstretch("https://dl.dropboxusercontent.com/u/134623784/lifemusic.png");
+  $.backstretch("https://dl.dropboxusercontent.com/u/134623784/lifemusic1.png");
 })
 

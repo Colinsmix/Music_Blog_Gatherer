@@ -11,12 +11,12 @@ class User < ActiveRecord::Base
 
   has_many :blogs, foreign_key: :submitter_id
   has_many :favorite_blogs
-  # has_many :blogs, through: :favorites
   has_many :comments, inverse_of: :user
-  
+
   validates_presence_of :email
-  validates_format_of :email, :with => VALID_EMAIL_REGEX, :on => :create  
+  validates_format_of :email, :with => VALID_EMAIL_REGEX, :on => :create
   validates_uniqueness_of :email
+  validates_uniqueness_of :username
 
   def find_favorites
     favorite_blogs.map{|x| Blog.find(x.blog_id)}

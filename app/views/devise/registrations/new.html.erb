@@ -5,7 +5,8 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.input :first_name, :autofocus => true, placeholder: 'Your First Name (Optional)', label_html: {class: 'formfont' } %>
+    <%= f.input :username, autofocus: true, placeholder: 'Your username (Optional, used for comments)', label_html: { class: 'formfont' } %>
+    <%= f.input :first_name, placeholder: 'Your First Name (Optional)', label_html: {class: 'formfont' } %>
     <%= f.input :last_name, placeholder: 'Your Last Name (Optional)', label_html: {class: 'formfont' } %>
     <%= f.input :email, :required => true, placeholder: 'Your Email Address', label_html: {class: 'formfont' } %>
     <%= f.input :password, :required => true, placeholder: 'Choose a Password', label_html: {class: 'formfont' } %>

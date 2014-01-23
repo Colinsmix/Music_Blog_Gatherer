@@ -22,7 +22,6 @@
   </head>
 
   <body>
-    <%= javascript_include_tag "application" %>
 
     <nav class="top-bar" data-topbar data-options="is_hover: false">
       <ul class="title-area">
@@ -60,6 +59,40 @@
     <div class='row'>
     <%= yield %>
     </div>
+    <%= javascript_include_tag "application" %>
+
+
+    <script>
+      // $('.blog-links').on('mouseover', 'a[href]', function() {
+      //     var elem = $(this);
+
+      //     // Grab the URL from our link
+      //     var url = encodeURIComponent( $(this).attr('href') ),
+      //         apiKey = '0KUn7MSO3322', // Please don't abuse my API key - get your own for free here: http://www.websnapr.com/free_services/
+      //         thumbail;
+
+      //     // Create image thumbnail using Websnapr thumbnail service
+      //     thumbnail = $('<img />', {
+      //         src: 'http://images.websnapr.com/?url=' + url + '&key=' + apiKey + '&hash=' + encodeURIComponent(websnapr_hash),
+      //         alt: 'Loading thumbnail...',
+      //         width: 202,
+      //         height: 152
+      //     });
+
+      //     // Setup the tooltip with the content
+      //     elem.qtip({
+      //         content: thumbnail,
+      //         position: {
+      //               my: 'right center',
+      //               at: 'left center'
+      //         },
+      //         style: {
+      //             classes: 'websnapr qtip-blue'
+      //         }
+      //     });
+      // });
+    </script>
+
     <%= yield :extra_footer %>
 
 

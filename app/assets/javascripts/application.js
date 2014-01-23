@@ -32,34 +32,6 @@ $(function () {
   $('#blogs_search input').keyup(function () {
     $.get($("#blogs_search").attr("action"), $("#blogs_search").serialize(), null, 'script');
     $('.togglehide').show();
-    $('a[href]').each(function() {
-    var elem = $(this);
-
-    // Grab the URL from our link
-    var url = encodeURIComponent( $(this).attr('href') ),
-        apiKey = '0KUn7MSO3322', // Please don't abuse my API key - get your own for free here: http://www.websnapr.com/free_services/
-        thumbail;
-
-    // Create image thumbnail using Websnapr thumbnail service
-    thumbnail = $('<img />', {
-        src: 'http://images.websnapr.com/?url=' + url + '&key=' + apiKey + '&hash=' + encodeURIComponent(websnapr_hash),
-        alt: 'Loading thumbnail...',
-        width: 202,
-        height: 152
-    });
-
-    // Setup the tooltip with the content
-    elem.qtip({
-        content: thumbnail,
-        position: {
-            at: 'left center',
-            my: 'left center'
-        },
-        style: {
-            classes: 'websnapr qtip-blue'
-        }
-    });
-});
     return false;
   });
 });
@@ -67,3 +39,5 @@ $(function () {
 $(function(){
   $.backstretch("https://dl.dropboxusercontent.com/u/134623784/lifemusic1.png");
 })
+
+

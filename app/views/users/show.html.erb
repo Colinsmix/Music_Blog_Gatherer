@@ -19,7 +19,7 @@
     <tbody>
       <% @user.find_favorites.each do |blog| %>
         <tr>
-          <td><%= link_to "#{blog.name}", "http://#{blog.url}" %></td>
+          <td class='blog-links'><%= link_to "#{blog.name}", "http://#{blog.url}" %></td>
           <td><%= blog.description %></td>
           <td><%= blog.tag_list %></td>
           <td data-blog-id='<%= blog.id %>' class="btn dark unfavoritebutton show">Remove</td>

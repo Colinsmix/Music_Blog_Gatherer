@@ -28,6 +28,8 @@
   <div id="blogs"></div>
       <% end %>
 
+<% content_for :extra_footer do%>
+
 <script>
 
 $(function(){
@@ -70,5 +72,5 @@ var unfavoriteBlog = function(e){
       $.get('blogs/' + target.data('blog-id') + '/dislike', function(response){
       });
   }
-
   </script>
+  <% end %>

@@ -11,7 +11,7 @@
       <% @comments.each do |comment| %>
         <tr>
           <td><%= comment.body %></td>
-          <td><%= (comment.anonymous || comment.username.nil?) ? "Anonymous" : comment.user.username %></td>
+          <td><%= (comment.anonymous || comment.user.username.nil?) ? "Anonymous" : comment.user.username %></td>
           <% if comment.user == current_user %>
             <td><%= link_to 'Edit', edit_blog_comment_path(comment.blog, comment) %></td>
             <td><%= link_to 'Delete', blog_comment_path(comment.blog, comment), method: :delete %></td>

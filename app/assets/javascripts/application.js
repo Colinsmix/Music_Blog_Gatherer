@@ -52,8 +52,8 @@ $(function () {
     elem.qtip({
         content: thumbnail,
         position: {
-            at: 'top center',
-            my: 'bottom center'
+            at: 'left center',
+            my: 'left center'
         },
         style: {
             classes: 'websnapr qtip-blue'

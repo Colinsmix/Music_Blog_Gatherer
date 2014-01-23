@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery.qtip.js
 //= require foundation
 //= require backstretch.min
 //= require_tree .
@@ -38,4 +39,3 @@ $(function () {
 $(function(){
   $.backstretch("https://dl.dropboxusercontent.com/u/134623784/lifemusic1.png");
 })
-

@@ -11,7 +11,9 @@
     <![endif]-->
 
   </head>
-<br><br>
+  <br><br>
+  <div class="welcomeheader"><h2> Welcome to Music Blog!  To use our search, please enter the name of the blog, or a genre you are currently craving.  We will do the rest. </h2></div>
+
   <div id="search">
     <div class=" searchbartop small-6 small-centered columns"></div>
     <div class="search square searchbarcenter small-6 small-centered columns searchcolor">
@@ -27,7 +29,8 @@
 <script>
 
 $(function(){
-  $('#search').click(function(e){
+  $('#search input').on('keyup', function(e){
+    $('.welcomeheader').fadeOut(200);
     var search = $(e.target)
     if (search.hasClass('fly') === false){
       search.addClass('fly');

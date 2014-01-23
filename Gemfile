@@ -10,6 +10,7 @@ gem "ransack"
 gem 'will_paginate', '~> 3.0'
 gem 'coveralls', require: false
 gem "font-awesome-rails"
+gem 'jquery-qtip2-rails'
 
 
 # Use postgresql as the database for Active Record

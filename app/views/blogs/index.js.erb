@@ -1,5 +1,5 @@
 $('#blogs').html('<%= escape_javascript(render("blogs")) %>');
- $('.blog-links').on('mouseover', 'a[href]', function() {
+ $('.blog-links a[href]').each(function() {
           var elem = $(this);
 
           // Grab the URL from our link

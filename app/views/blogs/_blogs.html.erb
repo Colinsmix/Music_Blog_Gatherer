@@ -16,7 +16,7 @@
   <tbody>
     <% @blogs.each do |blog| %>
       <tr>
-        <div id="blogslisted" class="blognamefont"><strong><td class="blog-links"><%= link_to "#{blog.name}", "http://#{blog.url}"%></td></strong></div>
+        <div id="blogslisted" class="blognamefont"><strong><td class="blog-links"><%= link_to "#{blog.name}", "http://#{blog.url}", target: "_blank" %></td></strong></div>
         <td><%= blog.tag_list %></td>
         <% if user_signed_in? %>
           <td>

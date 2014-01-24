@@ -1,11 +1,13 @@
-<h3> Taggings </h3>
+<div class="siteheader"><h1> Taggings </h1></div>
   <%= simple_form_for [:admin, @blog] do |f| %>
-    <%= f.input :name %>
-    <%= f.input :url %>
-    <%= f.input :description %>
-    <%= f.input :tag_list, placeholder: 'Enter tags here, comma seperated' %>
-    <%= f.input :status, wrapper_html: { id: 'blog_verified' }, collection: ["Verified" , "Denied"], as: :radio_buttons %>
+  <div class="form-inputs">
+    <%= f.input :name, label_html: {class: "formfont"} %>
+    <%= f.input :url, label_html: {class: "formfont"} %>
+    <%= f.input :description, label_html: {class: "formfont"} %>
+    <%= f.input :tag_list, placeholder: 'Enter tags here, comma seperated', label_html: {class: "formfont"} %>
+    <%= f.input :status, label_html: {class: "formfont"}, wrapper_html: { id: 'blog_verified', class: "formfont"}, collection: ["Verified" , "Denied"], as: :radio_buttons %>
     <%= f.button :submit, 'Verify', class: 'btn dark' %>
+  </div>
   <% end %>
 
   <%= link_to 'Back to List', admin_blogs_path %>

@@ -5,6 +5,7 @@ class BlogsController < ApplicationController
   def index
     @blogs = Blog.where(status: "Verified").search(params[:search]).order("blogs.#{sort_column} #{sort_direction}").paginate(:per_page => 5, :page => params[:page])
     @randomblog = @blogs.sample
+    @favorite5 = Blog.order('blogs.favorites_count DESC').limit(5)
   end
 
   def show

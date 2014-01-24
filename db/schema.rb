@@ -11,20 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140122184254) do
+ActiveRecord::Schema.define(version: 20140124041539) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "blogs", force: true do |t|
-    t.string   "name",                                null: false
-    t.string   "url",                                 null: false
-    t.string   "status",       default: "unverified"
+    t.string   "name",                                   null: false
+    t.string   "url",                                    null: false
+    t.string   "status",          default: "unverified"
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "submitter_id"
-    t.text     "description",                         null: false
+    t.text     "description",                            null: false
+    t.integer  "favorites_count", default: 0
   end
 
   add_index "blogs", ["name"], name: "index_blogs_on_name", using: :btree

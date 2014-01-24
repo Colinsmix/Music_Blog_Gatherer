@@ -84,6 +84,8 @@ top:2px;
     background: -o-linear-gradient(#34495e,#2c3e50);
     background: linear-gradient(#34495e,#2c3e50);
     border: 1px solid #333;
+    color: #d7d98f;
+
 }
 .btn.light {
     /*linear-gradient*/
@@ -93,6 +95,7 @@ top:2px;
     background: -o-linear-gradient(#ecf0f1,#bdc3c7);
     background: linear-gradient(#ecf0f1,#bdc3c7);
     border: 1px solid #666;
+    color: #00a074;
 }
 
 /* Light version*/
@@ -102,4 +105,55 @@ top:2px;
 
 .btn span.favoritebutton {
     background: url(favorite.png) no-repeat 0 -4px;
+}
+
+.btnfavorite {
+    text-decoration: none;
+    appearance: none;
+    border: 0;
+    padding: .8em .8em 1em;
+    display: block;
+    float: left;
+    width: auto;
+    margin: .2em .4em;
+    border: 1px solid #fff;
+    font-size: .8em;
+    line-height: 1;
+    color: #2c3e50;
+    text-shadow: 0 0 0;
+    outline: 0;
+    /*border-radius*/
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    border-radius: 6px;
+    height: 30px;
+    font-weight: bold;
+    font-size: 1.2em;
+    line-height: .6;
+    /*linear-gradient*/
+    background: -webkit-gradient(linear,left top,left bottom,from(#2186d4),to(#175dbd));
+    background: -webkit-linear-gradient(#2186d4,#175dbd);
+    background: -moz-linear-gradient(#2186d4,#175dbd);
+    background: -o-linear-gradient(#2186d4,#175dbd);
+    background: linear-gradient(#2186d4,#175dbd);
+    color: #fff;
+    border: 1px solid #244868;
+    text-shadow: 0 -1px 4px rgba(0,0,0,.4);
+    /*box-shadow*/
+    -webkit-box-shadow: 0 1px 4px rgba(0,0,0,.2), inset 0 1px 0 rgba(255,255,255,.2), inset 0 -1px 1px rgba(255,255,255,.1);
+    -moz-box-shadow: 0 1px 4px rgba(0,0,0,.2), inset 0 1px 0 rgba(255,255,255,.2), inset 0 -1px 1px rgba(255,255,255,.1);
+    box-shadow: 0 1px 4px rgba(0,0,0,.2), inset 0 1px 0 rgba(255,255,255,.2), inset 0 -1px 1px rgba(255,255,255,.1);
+  position:absolute;
+}
+
+.btnfavorite.dark {
+    /*linear-gradient*/
+    background: -webkit-gradient(linear,left top,left bottom,from(#34495e),to(#2c3e50));
+    background: -webkit-linear-gradient(#34495e,#2c3e50);
+    background: -moz-linear-gradient(#34495e,#2c3e50);
+    background: -o-linear-gradient(#34495e,#2c3e50);
+    background: linear-gradient(#34495e,#2c3e50);
+    color: #d7d98f;
+
+    border: 1px solid #333;
 }

@@ -1,5 +1,5 @@
 class FavoriteBlog < ActiveRecord::Base
-  belongs_to :blog
+  belongs_to :blog, counter_cache: :favorites_count
   belongs_to :user
 
   validates_presence_of :user_id

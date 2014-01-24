@@ -2,11 +2,11 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.input :body, :autofocus => true %>
-    <%= f.input :anonymous, as: :radio_buttons %>
+    <%= f.input :body, :autofocus => true, label_html: {class: "formfont"} %>
+    <%= f.input :anonymous, as: :radio_buttons, label_html: {class: "formfont"} %>
   </div>
 
-  <div class="form-actions">
-    <%= f.button :submit, "Post Comment" %>
+  <div class="form-actions centerbutton">
+    <%= f.button :submit, "Post Comment", class: 'btn dark' %>
   </div>
 <% end %>

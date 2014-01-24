@@ -21,11 +21,14 @@
       <%= form_tag blogs_path, :method => 'get', :id => "blogs_search" do %>
         <p>
           <%= text_field_tag :search, params[:search], placeholder: 'Filter Your Search Here' %>
+          <div class="randomcenter"><%= link_to "Surprise Me!", "http://#{@randomblog.url}", target: "_blank", class: "btn dark" %></div>
+
         </p>
     </div>
   </div>
   <div id="blogs"></div>
       <% end %>
+
 
 <% content_for :extra_footer do%>
 

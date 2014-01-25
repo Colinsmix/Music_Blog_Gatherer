@@ -10,8 +10,10 @@ So that it can be searched for by other users.) do
 # - When I complete the form, the data is stored in the database labeled 'unverified'.
   let!(:user){ FactoryGirl.build(:user) }
   let!(:blog){ FactoryGirl.build(:blog) }
+  let!(:blog2){ FactoryGirl.build(:blog) }
 
   scenario 'Visitor attempts to add a blog without signing in' do
+    blog2.save!
     visit root_path
     click_link 'Add a Blog'
 
@@ -20,6 +22,7 @@ So that it can be searched for by other users.) do
   end
 
   scenario 'Redirects the user to the main page after adding a blog successfully' do
+    blog2.save!
     user.save!
     sign_in_as(user)
     visit root_path
@@ -37,6 +40,7 @@ So that it can be searched for by other users.) do
   end
 
   scenario 'User enters a blog with invalid information' do
+    blog2.save!
     user.save!
     sign_in_as(user)
     visit root_path

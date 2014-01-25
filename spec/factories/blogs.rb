@@ -5,6 +5,6 @@ FactoryGirl.define do
     sequence(:name) { |n| "Example Blog #{n}"}
     sequence(:url) { |n| "www.UrlExample#{n}.com"}
     description 'Example Description'
-
+    status "Verified"
   end
 end

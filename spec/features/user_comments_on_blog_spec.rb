@@ -10,11 +10,10 @@ So that I can share my likes/dislikes about it.) do
   let!(:blog1){ FactoryGirl.create(:blog, tag_list: ['Jazz', 'Rock'], status: 'Verified') }
 
 
-  scenario 'User comments on a blog' do
+  scenario 'User comments on a blog', js: true do
     user.save!
     sign_in_as(user)
     visit root_path
-    click_on "search"
     fill_in "search", with: 'Jazz'
     click_link('Comments')
     click_link('Add Comment')

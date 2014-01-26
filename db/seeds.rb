@@ -9,7 +9,7 @@
 puts "********Seeding Data Start************"
 
 admin = User.create(
-        first_name: 'Colin', last_name: 'Shields', username: 'Colinsmix'
+        first_name: 'Colin', last_name: 'Shields', username: 'Colinsmix',
         email: "csunc11@aol.com",
         password: 'colins85', password_confirmation: 'colins85',
         role: 'Admin')

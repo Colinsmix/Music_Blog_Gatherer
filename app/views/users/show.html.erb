@@ -7,26 +7,30 @@
 <h2> Favorite Blogs </h2>
 </div>
 <div class="containerdiv">
-  <table id="favorites">
-    <thead>
-      <tr>
-        <th width="200">Name</th>
-        <th width="200">Description</th>
-        <th width="150">Tag List</th>
-        <th width="150"></th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @user.find_favorites.each do |blog| %>
+  <% if @user.find_favorites.count == 0 %>
+    <div class="nofavorites"><h2>No Blogs to Display!</h2></div>
+  <% else %>
+    <table id="favorites">
+      <thead>
         <tr>
-          <td class='blog-links'><%= link_to "#{blog.name}", "http://#{blog.url}", target: "_blank" %></td>
-          <td><%= blog.description %></td>
-          <td><%= blog.tag_list %></td>
-          <td data-blog-id='<%= blog.id %>' class="btn dark unfavoritebutton show">Remove</td>
+          <th width="200">Name</th>
+          <th width="200">Description</th>
+          <th width="150">Tag List</th>
+          <th width="150"></th>
         </tr>
-      <% end %>
-    </tbody>
-  </table>
+      </thead>
+      <tbody>
+        <% @user.find_favorites.each do |blog| %>
+          <tr>
+            <td class='blog-links'><%= link_to "#{blog.name}", "http://#{blog.url}", target: "_blank" %></td>
+            <td><%= blog.description %></td>
+            <td><%= blog.tag_list %></td>
+            <td data-blog-id='<%= blog.id %>' class="btn dark unfavoritebutton show">Remove</td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% end %>
 </div>
 
 

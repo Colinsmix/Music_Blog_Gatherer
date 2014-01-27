@@ -8,23 +8,11 @@
 
 puts "********Seeding Data Start************"
 
-admin = User.create(
-        first_name: 'Colin', last_name: 'Shields', username: 'Colinsmix',
-        email: "csunc11@aol.com",
-        password: 'colins85', password_confirmation: 'colins85',
-        role: 'Admin')
-
-
-if admin.errors.blank?
-    puts "***User #{admin.first_name} #{admin.last_name} created ***"
-    admin.add_role :admin # add_role is method defined by rolify gem
-    puts "***admin role assigned to #{admin.first_name} #{admin.last_name}***"
-else
-    puts "admin user failed to create due to below reasons:"
-    admin.errors.each do |x, y|
-       puts"#{x} #{y}" # x will be the field name and y will be the error on it
-     end
-end
+User.create(
+  first_name: 'Colin', last_name: 'Shields', username: 'Colinsmix',
+  email: "csunc11@aol.com",
+  password: 'colins85', password_confirmation: 'colins85',
+  role: 'Admin')
 
 Blog.create(
   name: "Top House Music Blog", url: "www.tophousemusicblog.com/",

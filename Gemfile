@@ -12,6 +12,8 @@ gem 'coveralls', require: false
 gem "font-awesome-rails"
 gem 'jquery-qtip2-rails'
 gem 'rails_12factor', group: :production
+gem 'factory_girl_rails'
+
 
 # Use postgresql as the database for Active Record
 gem 'pg'
@@ -46,7 +48,6 @@ end
 
 group :test, :development do
   gem 'rspec-rails'
-  gem 'factory_girl_rails'
   gem 'pry-rails'
   gem 'quiet_assets'
   gem 'dotenv-rails'

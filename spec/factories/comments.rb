@@ -3,8 +3,6 @@
 FactoryGirl.define do
   factory :comment do
     body 'Example Body'
-    user :user
-    blog :blog
     anonymous true
   end
 end
